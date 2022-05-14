@@ -1,8 +1,7 @@
+import 'package:core/presentation/bloc/tv/popular_tv/popular_tv_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../utils/state_enum.dart';
-import '../provider/tv/popular_tv_notifier.dart';
 import '../widgets/tv_card_list.dart';
 
 class PopularTelevisionPage extends StatefulWidget {
@@ -18,9 +17,9 @@ class _PopularTelevisionPageState extends State<PopularTelevisionPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<PopularTvNotifier>(context, listen: false)
-            .fetchPopularTv());
+    Future.microtask(() {
+      context.read<TvPopularBloc>().add(TvPopularGetEvent());
+    });
   }
 
   @override
@@ -31,24 +30,24 @@ class _PopularTelevisionPageState extends State<PopularTelevisionPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<PopularTvNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<TvPopularBloc, TvPopularState>(
+          builder: (context, state) {
+            if (state is TvPopularLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is TvPopularLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tvs = data.tv[index];
+                  final tvs = state.result[index];
                   return TvCard(tvs);
                 },
-                itemCount: data.tv.length,
+                itemCount: state.result.length,
               );
             } else {
               return Center(
-                key: const Key('error_message'),
-                child: Text(data.message),
+                key: Key('error_message'),
+                child: Text("Error"),
               );
             }
           },

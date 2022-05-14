@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'package:core/styles/text_styles.dart';
-import 'package:core/utils/state_enum.dart';
-import '../provider/tv_search_notifier.dart';
+import 'package:core/presentation/bloc/tv/search_tv/search_tv_bloc.dart';
 import 'package:core/presentation/widgets/tv_card_list.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchTelevisionPage extends StatelessWidget {
   static const ROUTE_NAME = '/search-tv';
@@ -24,10 +24,9 @@ class SearchTelevisionPage extends StatelessWidget {
           children: [
             TextField(
               onSubmitted: (query) {
-                Provider.of<TvSearchNotifier>(context, listen: false)
-                    .fetchTvSearch(query);
+                context.read<TvSearchBloc>().add(TvSearchQueryEvent(query));
               },
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Search title',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
@@ -39,19 +38,19 @@ class SearchTelevisionPage extends StatelessWidget {
               'Search Result',
               style: kHeading6,
             ),
-            Consumer<TvSearchNotifier>(
-              builder: (context, data, child) {
-                if (data.state == RequestState.Loading) {
+            BlocBuilder<TvSearchBloc, TvSearchState>(
+              builder: (context, state) {
+                if (state is TvSearchLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (data.state == RequestState.Loaded) {
-                  final result = data.searchTvResult;
+                } else if (state is TvSearchLoaded) {
+                  final result = state.result;
                   return Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.all(8),
                       itemBuilder: (context, index) {
-                        final tv = data.searchTvResult[index];
+                        final tv = state.result[index];
                         return TvCard(tv);
                       },
                       itemCount: result.length,

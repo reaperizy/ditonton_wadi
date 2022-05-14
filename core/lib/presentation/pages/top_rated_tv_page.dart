@@ -1,7 +1,7 @@
+import 'package:core/presentation/bloc/tv/toprated_tv/toprated_tv_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../../utils/state_enum.dart';
-import '../provider/tv/top_rated_tv_notifier.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../widgets/tv_card_list.dart';
 
 class TopRatedTelevisionPage extends StatefulWidget {
@@ -17,9 +17,9 @@ class _TopRatedTelevisionPageState extends State<TopRatedTelevisionPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<TopRatedTvNotifier>(context, listen: false)
-            .fetchTopRatedTv());
+    Future.microtask(() {
+      context.read<TvTopRatedBloc>().add(TvTopRatedGetEvent());
+    });
   }
 
   @override
@@ -30,24 +30,24 @@ class _TopRatedTelevisionPageState extends State<TopRatedTelevisionPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<TopRatedTvNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<TvTopRatedBloc, TvTopRatedState>(
+          builder: (context, state) {
+            if (state is TvTopRatedLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is TvTopRatedLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tvs = data.tv[index];
+                  final tvs = state.result[index];
                   return TvCard(tvs);
                 },
-                itemCount: data.tv.length,
+                itemCount: state.result.length,
               );
             } else {
               return Center(
-                key: const Key('error_message'),
-                child: Text(data.message),
+                key: Key('error_message'),
+                child: Text("Error"),
               );
             }
           },
