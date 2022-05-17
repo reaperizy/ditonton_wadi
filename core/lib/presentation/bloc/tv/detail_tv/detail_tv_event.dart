@@ -1,16 +1,16 @@
 part of 'detail_tv_bloc.dart';
 
-abstract class TvDetailEvent extends Equatable {
-  const TvDetailEvent();
+abstract class DetailsTvsEvent extends Equatable {
+  const DetailsTvsEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class GetTvDetailEvent extends TvDetailEvent {
+class GetDetailsTvsEvent extends DetailsTvsEvent {
   final int id;
 
-  const GetTvDetailEvent(this.id);
+  const GetDetailsTvsEvent(this.id);
 
   @override
   List<Object> get props => [];

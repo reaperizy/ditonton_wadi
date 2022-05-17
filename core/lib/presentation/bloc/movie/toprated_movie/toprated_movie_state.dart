@@ -1,29 +1,29 @@
 part of 'toprated_movie_bloc.dart';
 
-abstract class MovieTopRatedState extends Equatable {
-  const MovieTopRatedState();
+abstract class TopRatedsMoviesState extends Equatable {
+  const TopRatedsMoviesState();
 
   @override
   List<Object> get props => [];
 }
 
-class MovieTopRatedEmpty extends MovieTopRatedState {}
+class TopRatedsMoviesEmpty extends TopRatedsMoviesState {}
 
-class MovieTopRatedLoading extends MovieTopRatedState {}
+class TopRatedsMoviesLoading extends TopRatedsMoviesState {}
 
-class MovieTopRatedError extends MovieTopRatedState {
+class TopRatedsMoviesError extends TopRatedsMoviesState {
   final String message;
 
-  const MovieTopRatedError(this.message);
+  const TopRatedsMoviesError(this.message);
 
   @override
   List<Object> get props => [message];
 }
 
-class MovieTopRatedLoaded extends MovieTopRatedState {
+class TopRatedsMoviesLoaded extends TopRatedsMoviesState {
   final List<Movie> result;
 
-  const MovieTopRatedLoaded(this.result);
+  const TopRatedsMoviesLoaded(this.result);
 
   @override
   List<Object> get props => [result];

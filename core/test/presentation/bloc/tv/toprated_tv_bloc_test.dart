@@ -10,47 +10,47 @@ import 'package:mockito/mockito.dart';
 
 import 'toprated_tv_bloc_test.mocks.dart';
 
-@GenerateMocks([GetTopRatedTv, TvTopRatedBloc])
+@GenerateMocks([GetTopRatedTv, TopRatedsTvsBloc])
 void main() {
   late MockGetTopRatedTv mockGetTopRatedTv;
-  late TvTopRatedBloc tvTopRatedBloc;
+  late TopRatedsTvsBloc tvTopRatedBloc;
 
   setUp(() {
     mockGetTopRatedTv = MockGetTopRatedTv();
-    tvTopRatedBloc = TvTopRatedBloc(mockGetTopRatedTv);
+    tvTopRatedBloc = TopRatedsTvsBloc(mockGetTopRatedTv);
   });
 
   final tvList = <Tv>[];
 
   test("initial state should be empty", () {
-    expect(tvTopRatedBloc.state, TvTopRatedEmpty());
+    expect(tvTopRatedBloc.state, TopRatedsTvsEmpty());
   });
 
   group('Top Rated Movies BLoC Test', () {
-    blocTest<TvTopRatedBloc, TvTopRatedState>(
+    blocTest<TopRatedsTvsBloc, TopRatedsTvsState>(
       'Should emit [Loading, Loaded] when data is gotten successfully',
       build: () {
         when(mockGetTopRatedTv.execute())
             .thenAnswer((_) async => Right(tvList));
         return tvTopRatedBloc;
       },
-      act: (bloc) => bloc.add(TvTopRatedGetEvent()),
-      expect: () => [TvTopRatedLoading(), TvTopRatedLoaded(tvList)],
+      act: (bloc) => bloc.add(TopRatedsTvsGetEvent()),
+      expect: () => [TopRatedsTvsLoading(), TopRatedsTvsLoaded(tvList)],
       verify: (bloc) {
         verify(mockGetTopRatedTv.execute());
       },
     );
 
-    blocTest<TvTopRatedBloc, TvTopRatedState>(
+    blocTest<TopRatedsTvsBloc, TopRatedsTvsState>(
       'Should emit [Loading, Error] when get top rated is unsuccessful',
       build: () {
         when(mockGetTopRatedTv.execute())
             .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return tvTopRatedBloc;
       },
-      act: (bloc) => bloc.add(TvTopRatedGetEvent()),
+      act: (bloc) => bloc.add(TopRatedsTvsGetEvent()),
       expect: () =>
-      [TvTopRatedLoading(), const TvTopRatedError('Server Failure')],
+      [TopRatedsTvsLoading(), const TopRatedsTvsError('Server Failure')],
       verify: (bloc) {
         verify(mockGetTopRatedTv.execute());
       },

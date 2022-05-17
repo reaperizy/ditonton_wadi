@@ -25,17 +25,17 @@ import 'package:search/presentation/bloc/search_tv/search_tv_bloc.dart' as _i3;
 
 class _FakeSearchTv_0 extends _i1.Fake implements _i2.SearchTv {}
 
-class _FakeTvSearchState_1 extends _i1.Fake implements _i3.TvSearchState {}
+class _FakeSearchTvsState_1 extends _i1.Fake implements _i3.SearchTvsState {}
 
 class _FakeTvRepository_2 extends _i1.Fake implements _i4.TvRepository {}
 
 class _FakeEither_3<L, R> extends _i1.Fake implements _i5.Either<L, R> {}
 
-/// A class which mocks [TvSearchBloc].
+/// A class which mocks [SearchTvsBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTvSearchBloc extends _i1.Mock implements _i3.TvSearchBloc {
-  MockTvSearchBloc() {
+class MockSearchTvsBloc extends _i1.Mock implements _i3.SearchTvsBloc {
+  MockSearchTvsBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -43,39 +43,39 @@ class MockTvSearchBloc extends _i1.Mock implements _i3.TvSearchBloc {
   _i2.SearchTv get searchTv => (super.noSuchMethod(Invocation.getter(#searchTv),
       returnValue: _FakeSearchTv_0()) as _i2.SearchTv);
   @override
-  _i3.TvSearchState get state => (super.noSuchMethod(Invocation.getter(#state),
-      returnValue: _FakeTvSearchState_1()) as _i3.TvSearchState);
+  _i3.SearchTvsState get state => (super.noSuchMethod(Invocation.getter(#state),
+      returnValue: _FakeSearchTvsState_1()) as _i3.SearchTvsState);
   @override
-  _i6.Stream<_i3.TvSearchState> get stream =>
+  _i6.Stream<_i3.SearchTvsState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i3.TvSearchState>.empty())
-          as _i6.Stream<_i3.TvSearchState>);
+              returnValue: Stream<_i3.SearchTvsState>.empty())
+          as _i6.Stream<_i3.SearchTvsState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i3.TvSearchEvent? event) =>
+  void add(_i3.SearchTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i3.TvSearchEvent? event) =>
+  void onEvent(_i3.SearchTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i3.TvSearchState? state) =>
+  void emit(_i3.SearchTvsState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i3.TvSearchEvent>(
-          _i7.EventHandler<E, _i3.TvSearchState>? handler,
+  void on<E extends _i3.SearchTvsEvent>(
+          _i7.EventHandler<E, _i3.SearchTvsState>? handler,
           {_i7.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i7.Transition<_i3.TvSearchEvent, _i3.TvSearchState>? transition) =>
+          _i7.Transition<_i3.SearchTvsEvent, _i3.SearchTvsState>? transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
   @override
@@ -83,7 +83,7 @@ class MockTvSearchBloc extends _i1.Mock implements _i3.TvSearchBloc {
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i7.Change<_i3.TvSearchState>? change) =>
+  void onChange(_i7.Change<_i3.SearchTvsState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

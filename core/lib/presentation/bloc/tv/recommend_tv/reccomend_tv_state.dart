@@ -1,29 +1,29 @@
 part of 'reccomend_tv_bloc.dart';
 
-abstract class TvRecommendationState extends Equatable {
-  const TvRecommendationState();
+abstract class RecommendTvsState extends Equatable {
+  const RecommendTvsState();
 
   @override
   List<Object> get props => [];
 }
 
-class TvRecommendationEmpty extends TvRecommendationState {}
+class RecommendTvsEmpty extends RecommendTvsState {}
 
-class TvRecommendationLoading extends TvRecommendationState {}
+class RecommendTvsLoading extends RecommendTvsState {}
 
-class TvRecommendationError extends TvRecommendationState {
+class RecommendTvsError extends RecommendTvsState {
   final String message;
 
-  const TvRecommendationError(this.message);
+  const RecommendTvsError(this.message);
 
   @override
   List<Object> get props => [message];
 }
 
-class TvRecommendationLoaded extends TvRecommendationState {
+class RecommendTvsLoaded extends RecommendTvsState {
   final List<Tv> tv;
 
-  const TvRecommendationLoaded(this.tv);
+  const RecommendTvsLoaded(this.tv);
 
   @override
   List<Object> get props => [tv];

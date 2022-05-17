@@ -29,9 +29,9 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<TvOnAirBloc>().add(TvOnAirGetEvent());
-      context.read<TvPopularBloc>().add(TvPopularGetEvent());
-      context.read<TvTopRatedBloc>().add(TvTopRatedGetEvent());
+      context.read<OnAirsTvsBloc>().add(OnAirsTvsGetEvent());
+      context.read<PopularsTvsBloc>().add(PopularsTvsGetEvent());
+      context.read<TopRatedsTvsBloc>().add(TopRatedsTvsGetEvent());
     });
   }
 
@@ -115,15 +115,15 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
                 'Now Playing TV',
                 style: kHeading6,
               ),
-              BlocBuilder<TvOnAirBloc, TvOnAirState>(
+              BlocBuilder<OnAirsTvsBloc, OnAirsTvsState>(
                 builder: (context, state) {
-                  if (state is TvOnAirLoading) {
+                  if (state is OnAirsTvsLoading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
-                  } else if (state is TvOnAirLoaded) {
+                  } else if (state is OnAirsTvsLoaded) {
                     return TvList(state.result);
-                  } else if (state is TvOnAirError) {
+                  } else if (state is OnAirsTvsError) {
                     return Text(state.message);
                   } else {
                     return const Text('Failed');
@@ -135,15 +135,15 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
                 onTap: () => Navigator.pushNamed(
                     context, PopularTelevisionPage.ROUTE_NAME),
               ),
-              BlocBuilder<TvPopularBloc, TvPopularState>(
+              BlocBuilder<PopularsTvsBloc, PopularsTvsState>(
                 builder: (context, state) {
-                  if (state is TvPopularLoading) {
+                  if (state is PopularsTvsLoading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
-                  } else if (state is TvPopularLoaded) {
+                  } else if (state is PopularsTvsLoaded) {
                     return TvList(state.result);
-                  } else if (state is TvPopularError) {
+                  } else if (state is PopularsTvsError) {
                     return Text(state.message);
                   } else {
                     return const Text('Failed');
@@ -155,15 +155,15 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
                 onTap: () => Navigator.pushNamed(
                     context, TopRatedTelevisionPage.ROUTE_NAME),
               ),
-              BlocBuilder<TvTopRatedBloc, TvTopRatedState>(
+              BlocBuilder<TopRatedsTvsBloc, TopRatedsTvsState>(
                 builder: (context, state) {
-                  if (state is TvTopRatedLoading) {
+                  if (state is TopRatedsTvsLoading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
-                  } else if (state is TvTopRatedLoaded) {
+                  } else if (state is TopRatedsTvsLoaded) {
                     return TvList(state.result);
-                  } else if (state is TvTopRatedError) {
+                  } else if (state is TopRatedsTvsError) {
                     return Text(state.message);
                   } else {
                     return const Text('Failed');

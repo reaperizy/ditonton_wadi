@@ -10,52 +10,52 @@ import 'package:mockito/mockito.dart';
 
 import 'recommend_tv_bloc_test.mocks.dart';
 
-@GenerateMocks([TvRecommendationBloc,GetTvRecommendations])
+@GenerateMocks([RecommendTvsBloc,GetTvRecommendations])
 void main() {
   late MockGetTvRecommendations mockGetTvRecommendation;
-  late TvRecommendationBloc tvRecommendationBloc;
+  late RecommendTvsBloc tvRecommendationBloc;
 
   setUp(() {
     mockGetTvRecommendation = MockGetTvRecommendations();
-    tvRecommendationBloc = TvRecommendationBloc(
+    tvRecommendationBloc = RecommendTvsBloc(
       getTvRecommendations: mockGetTvRecommendation,
     );
   });
 
   test("initial state should be empty", () {
-    expect(tvRecommendationBloc.state, TvRecommendationEmpty());
+    expect(tvRecommendationBloc.state, RecommendTvsEmpty());
   });
 
   const tvId = 1;
   final tvList = <Tv>[];
 
-  blocTest<TvRecommendationBloc, TvRecommendationState>(
+  blocTest<RecommendTvsBloc, RecommendTvsState>(
     'Should emit [Loading, Loaded] when data is gotten successfully',
     build: () {
       when(mockGetTvRecommendation.execute(tvId))
           .thenAnswer((_) async => Right(tvList));
       return tvRecommendationBloc;
     },
-    act: (bloc) => bloc.add(const GetTvRecommendationEvent(tvId)),
+    act: (bloc) => bloc.add(const GetRecommendTvsEvent(tvId)),
     expect: () =>
-    [TvRecommendationLoading(), TvRecommendationLoaded(tvList)],
+    [RecommendTvsLoading(), RecommendTvsLoaded(tvList)],
     verify: (bloc) {
       verify(mockGetTvRecommendation.execute(tvId));
     },
   );
 
   group('Recommendation Tv BLoC Test', () {
-    blocTest<TvRecommendationBloc, TvRecommendationState>(
+    blocTest<RecommendTvsBloc, RecommendTvsState>(
       'Should emit [Loading, Error] when get recommendation is unsuccessful',
       build: () {
         when(mockGetTvRecommendation.execute(tvId))
             .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return tvRecommendationBloc;
       },
-      act: (bloc) => bloc.add(const GetTvRecommendationEvent(tvId)),
+      act: (bloc) => bloc.add(const GetRecommendTvsEvent(tvId)),
       expect: () => [
-        TvRecommendationLoading(),
-        const TvRecommendationError('Server Failure')
+        RecommendTvsLoading(),
+        const RecommendTvsError('Server Failure')
       ],
       verify: (bloc) {
         verify(mockGetTvRecommendation.execute(tvId));

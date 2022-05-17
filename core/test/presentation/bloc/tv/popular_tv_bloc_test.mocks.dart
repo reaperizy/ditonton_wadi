@@ -30,7 +30,8 @@ class _FakeEither_1<L, R> extends _i1.Fake implements _i3.Either<L, R> {}
 
 class _FakeGetPopularTv_2 extends _i1.Fake implements _i4.GetPopularTv {}
 
-class _FakeTvPopularState_3 extends _i1.Fake implements _i5.TvPopularState {}
+class _FakePopularsTvsState_3 extends _i1.Fake implements _i5.PopularsTvsState {
+}
 
 /// A class which mocks [GetPopularTv].
 ///
@@ -52,11 +53,11 @@ class MockGetPopularTv extends _i1.Mock implements _i4.GetPopularTv {
           as _i6.Future<_i3.Either<_i7.Failure, List<_i8.Tv>>>);
 }
 
-/// A class which mocks [TvPopularBloc].
+/// A class which mocks [PopularsTvsBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTvPopularBloc extends _i1.Mock implements _i5.TvPopularBloc {
-  MockTvPopularBloc() {
+class MockPopularsTvsBloc extends _i1.Mock implements _i5.PopularsTvsBloc {
+  MockPopularsTvsBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -65,39 +66,41 @@ class MockTvPopularBloc extends _i1.Mock implements _i5.TvPopularBloc {
       (super.noSuchMethod(Invocation.getter(#getPopularTv),
           returnValue: _FakeGetPopularTv_2()) as _i4.GetPopularTv);
   @override
-  _i5.TvPopularState get state => (super.noSuchMethod(Invocation.getter(#state),
-      returnValue: _FakeTvPopularState_3()) as _i5.TvPopularState);
+  _i5.PopularsTvsState get state =>
+      (super.noSuchMethod(Invocation.getter(#state),
+          returnValue: _FakePopularsTvsState_3()) as _i5.PopularsTvsState);
   @override
-  _i6.Stream<_i5.TvPopularState> get stream =>
+  _i6.Stream<_i5.PopularsTvsState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i5.TvPopularState>.empty())
-          as _i6.Stream<_i5.TvPopularState>);
+              returnValue: Stream<_i5.PopularsTvsState>.empty())
+          as _i6.Stream<_i5.PopularsTvsState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i5.TvPopularEvent? event) =>
+  void add(_i5.PopularsTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i5.TvPopularEvent? event) =>
+  void onEvent(_i5.PopularsTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i5.TvPopularState? state) =>
+  void emit(_i5.PopularsTvsState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i5.TvPopularEvent>(
-          _i9.EventHandler<E, _i5.TvPopularState>? handler,
+  void on<E extends _i5.PopularsTvsEvent>(
+          _i9.EventHandler<E, _i5.PopularsTvsState>? handler,
           {_i9.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i9.Transition<_i5.TvPopularEvent, _i5.TvPopularState>? transition) =>
+          _i9.Transition<_i5.PopularsTvsEvent, _i5.PopularsTvsState>?
+              transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
   @override
@@ -105,7 +108,7 @@ class MockTvPopularBloc extends _i1.Mock implements _i5.TvPopularBloc {
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i9.Change<_i5.TvPopularState>? change) =>
+  void onChange(_i9.Change<_i5.PopularsTvsState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

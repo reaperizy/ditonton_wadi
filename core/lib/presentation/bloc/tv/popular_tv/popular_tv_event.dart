@@ -1,10 +1,10 @@
 part of 'popular_tv_bloc.dart';
 
-abstract class TvPopularEvent extends Equatable {
-  const TvPopularEvent();
+abstract class PopularsTvsEvent extends Equatable {
+  const PopularsTvsEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class TvPopularGetEvent extends TvPopularEvent {}
+class PopularsTvsGetEvent extends PopularsTvsEvent {}

@@ -6,22 +6,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'search_movie_event.dart';
 part 'search_movie_state.dart';
 
-class MovieSearchBloc extends Bloc<MovieSearchEvent, MovieSearchState> {
+class SearchMoviesBloc extends Bloc<SearchMoviesEvent, SearchMoviesState> {
   final SearchMovies searchMovies;
 
-  MovieSearchBloc({
+  SearchMoviesBloc({
     required this.searchMovies,
-  }) : super(MovieSearchEmpty()) {
-    on<MovieSearchSetEmpty>((event, emit) => emit(MovieSearchEmpty()));
+  }) : super(SearchMoviesEmpty()) {
+    on<MovieSearchSetEmpty>((event, emit) => emit(SearchMoviesEmpty()));
     on<MovieSearchQueryEvent>((event, emit) async {
-      emit(MovieSearchLoading());
+      emit(SearchMoviesLoading());
       final result = await searchMovies.execute(event.query);
       result.fold(
         (failure) {
-          emit(MovieSearchError(failure.message));
+          emit(SearchMoviesError(failure.message));
         },
         (data) {
-          emit(MovieSearchLoaded(data));
+          emit(SearchMoviesLoaded(data));
         },
       );
     });

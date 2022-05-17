@@ -30,49 +30,49 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<MovieDetailBloc>().add(GetMovieDetailEvent(widget.id));
+      context.read<DetailsMoviesBloc>().add(GetDetailsMoviesEvent(widget.id));
       context
-          .read<MovieRecommendationBloc>()
-          .add(GetMovieRecommendationEvent(widget.id));
-      context.read<MovieWatchlistBloc>().add(GetStatusMovieEvent(widget.id));
+          .read<RecommendMoviesBloc>()
+          .add(GetRecommendMoviesEvent(widget.id));
+      context.read<WatchlistMoviesBloc>().add(GetStatusMovieEvent(widget.id));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    MovieRecommendationState movieRecommendations =
-        context.watch<MovieRecommendationBloc>().state;
+    RecommendMoviesState movieRecommendations =
+        context.watch<RecommendMoviesBloc>().state;
     return Scaffold(
-      body: BlocListener<MovieWatchlistBloc, MovieWatchlistState>(
+      body: BlocListener<WatchlistMoviesBloc, WatchlistMoviesState>(
         listener: (_, state) {
           if (state is MovieWatchlistSuccess) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(state.message),
             ));
             context
-                .read<MovieWatchlistBloc>()
+                .read<WatchlistMoviesBloc>()
                 .add(GetStatusMovieEvent(widget.id));
           }
         },
-        child: BlocBuilder<MovieDetailBloc, MovieDetailState>(
+        child: BlocBuilder<DetailsMoviesBloc, DetailsMoviesState>(
           builder: (context, state) {
-            if (state is DetailMovieLoading) {
+            if (state is MoviesDetailsLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is DetailMovieLoaded) {
+            } else if (state is MoviesDetailsLoaded) {
               final movie = state.movieDetail;
               bool isAddedToWatchlist = (context
-                      .watch<MovieWatchlistBloc>()
+                      .watch<WatchlistMoviesBloc>()
                       .state is MovieWatchlistStatusLoaded)
-                  ? (context.read<MovieWatchlistBloc>().state
+                  ? (context.read<WatchlistMoviesBloc>().state
                           as MovieWatchlistStatusLoaded)
                       .result
                   : false;
               return SafeArea(
                 child: DetailContent(
                   movie,
-                  movieRecommendations is MovieRecommendationLoaded
+                  movieRecommendations is RecommendMoviesLoaded
                       ? movieRecommendations.movie
                       : List.empty(),
                   isAddedToWatchlist,
@@ -140,10 +140,10 @@ class DetailContent extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () async {
                                 if (!isAddedWatchlist) {
-                                  BlocProvider.of<MovieWatchlistBloc>(context)
+                                  BlocProvider.of<WatchlistMoviesBloc>(context)
                                     .add(AddItemMovieEvent(movie));
                                 } else {
-                                  BlocProvider.of<MovieWatchlistBloc>(context)
+                                  BlocProvider.of<WatchlistMoviesBloc>(context)
                                     .add(RemoveItemMovieEvent(movie));
                                 }
                               },
@@ -190,16 +190,16 @@ class DetailContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            BlocBuilder<MovieRecommendationBloc,
-                                MovieRecommendationState>(
+                            BlocBuilder<RecommendMoviesBloc,
+                                RecommendMoviesState>(
                               builder: (context, state) {
-                                if (state is MovieRecommendationLoading) {
+                                if (state is RecommendMoviesLoading) {
                                   return const Center(
                                     child: CircularProgressIndicator(),
                                   );
-                                } else if (state is MovieRecommendationError) {
+                                } else if (state is RecommendMoviesError) {
                                   return Text(state.message);
-                                } else if (state is MovieRecommendationLoaded) {
+                                } else if (state is RecommendMoviesLoaded) {
                                   final recommendations = state.movie;
                                   if (recommendations.isEmpty) {
                                     return const Text(

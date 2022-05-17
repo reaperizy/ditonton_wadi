@@ -27,19 +27,18 @@ import 'package:mockito/mockito.dart' as _i1;
 class _FakeGetTvRecommendations_0 extends _i1.Fake
     implements _i2.GetTvRecommendations {}
 
-class _FakeTvRecommendationState_1 extends _i1.Fake
-    implements _i3.TvRecommendationState {}
+class _FakeRecommendTvsState_1 extends _i1.Fake
+    implements _i3.RecommendTvsState {}
 
 class _FakeTvRepository_2 extends _i1.Fake implements _i4.TvRepository {}
 
 class _FakeEither_3<L, R> extends _i1.Fake implements _i5.Either<L, R> {}
 
-/// A class which mocks [TvRecommendationBloc].
+/// A class which mocks [RecommendTvsBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTvRecommendationBloc extends _i1.Mock
-    implements _i3.TvRecommendationBloc {
-  MockTvRecommendationBloc() {
+class MockRecommendTvsBloc extends _i1.Mock implements _i3.RecommendTvsBloc {
+  MockRecommendTvsBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -48,41 +47,40 @@ class MockTvRecommendationBloc extends _i1.Mock
       Invocation.getter(#getTvRecommendations),
       returnValue: _FakeGetTvRecommendations_0()) as _i2.GetTvRecommendations);
   @override
-  _i3.TvRecommendationState get state =>
+  _i3.RecommendTvsState get state =>
       (super.noSuchMethod(Invocation.getter(#state),
-              returnValue: _FakeTvRecommendationState_1())
-          as _i3.TvRecommendationState);
+          returnValue: _FakeRecommendTvsState_1()) as _i3.RecommendTvsState);
   @override
-  _i6.Stream<_i3.TvRecommendationState> get stream =>
+  _i6.Stream<_i3.RecommendTvsState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i3.TvRecommendationState>.empty())
-          as _i6.Stream<_i3.TvRecommendationState>);
+              returnValue: Stream<_i3.RecommendTvsState>.empty())
+          as _i6.Stream<_i3.RecommendTvsState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i3.TvRecommendationEvent? event) =>
+  void add(_i3.RecommendTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i3.TvRecommendationEvent? event) =>
+  void onEvent(_i3.RecommendTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i3.TvRecommendationState? state) =>
+  void emit(_i3.RecommendTvsState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i3.TvRecommendationEvent>(
-          _i7.EventHandler<E, _i3.TvRecommendationState>? handler,
+  void on<E extends _i3.RecommendTvsEvent>(
+          _i7.EventHandler<E, _i3.RecommendTvsState>? handler,
           {_i7.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i7.Transition<_i3.TvRecommendationEvent, _i3.TvRecommendationState>?
+          _i7.Transition<_i3.RecommendTvsEvent, _i3.RecommendTvsState>?
               transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
@@ -91,7 +89,7 @@ class MockTvRecommendationBloc extends _i1.Mock
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i7.Change<_i3.TvRecommendationState>? change) =>
+  void onChange(_i7.Change<_i3.RecommendTvsState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

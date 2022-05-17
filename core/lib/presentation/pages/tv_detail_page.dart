@@ -28,47 +28,47 @@ class _TelevisionDetailPageState extends State<TelevisionDetailPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<TvDetailBloc>().add(GetTvDetailEvent(widget.id));
+      context.read<DetailsTvsBloc>().add(GetDetailsTvsEvent(widget.id));
       context
-          .read<TvRecommendationBloc>()
-          .add(GetTvRecommendationEvent(widget.id));
-      context.read<TvWatchlistBloc>().add(GetStatusTvEvent(widget.id));
+          .read<RecommendTvsBloc>()
+          .add(GetRecommendTvsEvent(widget.id));
+      context.read<WatchlistTvsBloc>().add(GetStatusTvsEvent(widget.id));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    TvRecommendationState tvRecommendations =
-        context.watch<TvRecommendationBloc>().state;
+    RecommendTvsState tvRecommendations =
+        context.watch<RecommendTvsBloc>().state;
     return Scaffold(
-      body: BlocListener<TvWatchlistBloc, TvWatchlistState>(
+      body: BlocListener<WatchlistTvsBloc, WatchlistTvsState>(
         listener: (_, state) {
-          if (state is TvWatchlistSuccess) {
+          if (state is WatchlistTvsSuccess) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(state.message),
             ));
-            context.read<TvWatchlistBloc>().add(GetStatusTvEvent(widget.id));
+            context.read<WatchlistTvsBloc>().add(GetStatusTvsEvent(widget.id));
           }
         },
-        child: BlocBuilder<TvDetailBloc, TvDetailState>(
+        child: BlocBuilder<DetailsTvsBloc, DetailsTvsState>(
           builder: (context, state) {
-            if (state is TvDetailLoading) {
+            if (state is DetailsTvsLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is TvDetailLoaded) {
+            } else if (state is DetailTvsLoaded) {
               final tv = state.tvDetail;
               bool isAddedToWatchlistTv = (context
-                      .watch<TvWatchlistBloc>()
-                      .state is TvWatchlistStatusLoaded)
-                  ? (context.read<TvWatchlistBloc>().state
-                          as TvWatchlistStatusLoaded)
+                      .watch<WatchlistTvsBloc>()
+                      .state is WatchlistTvsStatusLoaded)
+                  ? (context.read<WatchlistTvsBloc>().state
+                          as WatchlistTvsStatusLoaded)
                       .result
                   : false;
               return SafeArea(
                 child: DetailContent(
                   tv,
-                  tvRecommendations is TvRecommendationLoaded
+                  tvRecommendations is RecommendTvsLoaded
                       ? tvRecommendations.tv
                       : List.empty(),
                   isAddedToWatchlistTv,
@@ -136,11 +136,11 @@ class DetailContent extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () async {
                                 if (!isAddedWatchlistTv) {
-                                  BlocProvider.of<TvWatchlistBloc>(context)
-                                    .add(AddItemTvEvent(tv));
+                                  BlocProvider.of<WatchlistTvsBloc>(context)
+                                    .add(AddItemTvsEvent(tv));
                                 } else {
-                                  BlocProvider.of<TvWatchlistBloc>(context)
-                                    .add(RemoveItemTvEvent(tv));
+                                  BlocProvider.of<WatchlistTvsBloc>(context)
+                                    .add(RemoveItemTvsEvent(tv));
                                 }
                               },
                               child: Row(
@@ -186,16 +186,16 @@ class DetailContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            BlocBuilder<TvRecommendationBloc,
-                                TvRecommendationState>(
+                            BlocBuilder<RecommendTvsBloc,
+                                RecommendTvsState>(
                               builder: (context, state) {
-                                if (state is TvRecommendationLoading) {
+                                if (state is RecommendTvsLoading) {
                                   return const Center(
                                     child: CircularProgressIndicator(),
                                   );
-                                } else if (state is TvRecommendationError) {
+                                } else if (state is RecommendTvsError) {
                                   return Text(state.message);
-                                } else if (state is TvRecommendationLoaded) {
+                                } else if (state is RecommendTvsLoaded) {
                                   final recommendations = state.tv;
                                   if (recommendations.isEmpty) {
                                     return const Text("No tv recommendations");

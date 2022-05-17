@@ -6,21 +6,21 @@ import 'package:equatable/equatable.dart';
 part 'toprated_movie_event.dart';
 part 'toprated_movie_state.dart';
 
-class MovieTopRatedBloc extends Bloc<MovieTopRatedEvent, MovieTopRatedState> {
+class TopRatedsMoviesBloc extends Bloc<TopRatedsMoviesEvent, TopRatedsMoviesState> {
   final GetTopRatedMovies getTopRatedMovies;
 
-  MovieTopRatedBloc(
+  TopRatedsMoviesBloc(
     this.getTopRatedMovies,
-  ) : super(MovieTopRatedEmpty()) {
-    on<MovieTopRatedGetEvent>((event, emit) async {
-      emit(MovieTopRatedLoading());
+  ) : super(TopRatedsMoviesEmpty()) {
+    on<TopRatedsMoviesGetEvent>((event, emit) async {
+      emit(TopRatedsMoviesLoading());
       final result = await getTopRatedMovies.execute();
       result.fold(
         (failure) {
-          emit(MovieTopRatedError(failure.message));
+          emit(TopRatedsMoviesError(failure.message));
         },
         (data) {
-          emit(MovieTopRatedLoaded(data));
+          emit(TopRatedsMoviesLoaded(data));
         },
       );
     });

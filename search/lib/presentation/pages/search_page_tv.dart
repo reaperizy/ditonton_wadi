@@ -24,7 +24,7 @@ class SearchTelevisionPage extends StatelessWidget {
           children: [
             TextField(
               onSubmitted: (query) {
-                context.read<TvSearchBloc>().add(TvSearchQueryEvent(query));
+                context.read<SearchTvsBloc>().add(TvSearchQueryEvent(query));
               },
               decoration: const InputDecoration(
                 hintText: 'Search title',
@@ -38,13 +38,13 @@ class SearchTelevisionPage extends StatelessWidget {
               'Search Result',
               style: kHeading6,
             ),
-            BlocBuilder<TvSearchBloc, TvSearchState>(
+            BlocBuilder<SearchTvsBloc, SearchTvsState>(
               builder: (context, state) {
-                if (state is TvSearchLoading) {
+                if (state is SearchTvsLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state is TvSearchLoaded) {
+                } else if (state is SearchTvsLoaded) {
                   final result = state.result;
                   return Expanded(
                     child: ListView.builder(

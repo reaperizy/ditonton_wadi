@@ -22,7 +22,7 @@ class _WatchlistTelevisionPageState extends State<WatchlistTelevisionPage>
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<TvWatchlistBloc>().add(GetListEvent());
+      context.read<WatchlistTvsBloc>().add(GetListEvent());
     });
   }
 
@@ -33,7 +33,7 @@ class _WatchlistTelevisionPageState extends State<WatchlistTelevisionPage>
   }
 
   void didPopNext() {
-    context.read<TvWatchlistBloc>().add(GetListEvent());
+    context.read<WatchlistTvsBloc>().add(GetListEvent());
   }
 
   @override
@@ -44,13 +44,13 @@ class _WatchlistTelevisionPageState extends State<WatchlistTelevisionPage>
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<TvWatchlistBloc, TvWatchlistState>(
+        child: BlocBuilder<WatchlistTvsBloc, WatchlistTvsState>(
           builder: (context, state) {
-            if (state is TvWatchlistLoading) {
+            if (state is WatchlistTvsLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is TvWatchlistLoaded) {
+            } else if (state is WatchlistTvsLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final tv = state.result[index];

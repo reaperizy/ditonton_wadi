@@ -6,21 +6,21 @@ import 'package:equatable/equatable.dart';
 part 'detail_tv_event.dart';
 part 'detail_tv_state.dart';
 
-class TvDetailBloc extends Bloc<TvDetailEvent, TvDetailState> {
+class DetailsTvsBloc extends Bloc<DetailsTvsEvent, DetailsTvsState> {
   final GetTvDetail getTvDetail;
 
-  TvDetailBloc({
+  DetailsTvsBloc({
     required this.getTvDetail,
-  }) : super(TvDetailEmpty()) {
-    on<GetTvDetailEvent>((event, emit) async {
-      emit(TvDetailLoading());
+  }) : super(DetailsTvsEmpty()) {
+    on<GetDetailsTvsEvent>((event, emit) async {
+      emit(DetailsTvsLoading());
       final result = await getTvDetail.execute(event.id);
       result.fold(
         (failure) {
-          emit(TvDetailError(failure.message));
+          emit(DetailsTvsError(failure.message));
         },
         (data) {
-          emit(TvDetailLoaded(data));
+          emit(DetailTvsLoaded(data));
         },
       );
     });

@@ -27,19 +27,19 @@ import 'package:mockito/mockito.dart' as _i1;
 class _FakeGetNowPlayingMovies_0 extends _i1.Fake
     implements _i2.GetNowPlayingMovies {}
 
-class _FakeMovieNowPlayingState_1 extends _i1.Fake
-    implements _i3.MovieNowPlayingState {}
+class _FakeNowPlayingsMoviesState_1 extends _i1.Fake
+    implements _i3.NowPlayingsMoviesState {}
 
 class _FakeMovieRepository_2 extends _i1.Fake implements _i4.MovieRepository {}
 
 class _FakeEither_3<L, R> extends _i1.Fake implements _i5.Either<L, R> {}
 
-/// A class which mocks [MovieNowPlayingBloc].
+/// A class which mocks [NowPlayingsMoviesBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMovieNowPlayingBloc extends _i1.Mock
-    implements _i3.MovieNowPlayingBloc {
-  MockMovieNowPlayingBloc() {
+class MockNowPlayingsMoviesBloc extends _i1.Mock
+    implements _i3.NowPlayingsMoviesBloc {
+  MockNowPlayingsMoviesBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -48,40 +48,42 @@ class MockMovieNowPlayingBloc extends _i1.Mock
       Invocation.getter(#getNowPlayingMovies),
       returnValue: _FakeGetNowPlayingMovies_0()) as _i2.GetNowPlayingMovies);
   @override
-  _i3.MovieNowPlayingState get state => (super.noSuchMethod(
-      Invocation.getter(#state),
-      returnValue: _FakeMovieNowPlayingState_1()) as _i3.MovieNowPlayingState);
+  _i3.NowPlayingsMoviesState get state =>
+      (super.noSuchMethod(Invocation.getter(#state),
+              returnValue: _FakeNowPlayingsMoviesState_1())
+          as _i3.NowPlayingsMoviesState);
   @override
-  _i6.Stream<_i3.MovieNowPlayingState> get stream =>
+  _i6.Stream<_i3.NowPlayingsMoviesState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i3.MovieNowPlayingState>.empty())
-          as _i6.Stream<_i3.MovieNowPlayingState>);
+              returnValue: Stream<_i3.NowPlayingsMoviesState>.empty())
+          as _i6.Stream<_i3.NowPlayingsMoviesState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i3.MovieNowPlayingEvent? event) =>
+  void add(_i3.NowPlayingsMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i3.MovieNowPlayingEvent? event) =>
+  void onEvent(_i3.NowPlayingsMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i3.MovieNowPlayingState? state) =>
+  void emit(_i3.NowPlayingsMoviesState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i3.MovieNowPlayingEvent>(
-          _i7.EventHandler<E, _i3.MovieNowPlayingState>? handler,
+  void on<E extends _i3.NowPlayingsMoviesEvent>(
+          _i7.EventHandler<E, _i3.NowPlayingsMoviesState>? handler,
           {_i7.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i7.Transition<_i3.MovieNowPlayingEvent, _i3.MovieNowPlayingState>?
+          _i7.Transition<_i3.NowPlayingsMoviesEvent,
+                  _i3.NowPlayingsMoviesState>?
               transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
@@ -90,7 +92,7 @@ class MockMovieNowPlayingBloc extends _i1.Mock
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i7.Change<_i3.MovieNowPlayingState>? change) =>
+  void onChange(_i7.Change<_i3.NowPlayingsMoviesState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

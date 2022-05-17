@@ -21,7 +21,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<MovieWatchlistBloc>().add(GetListEvent());
+      context.read<WatchlistMoviesBloc>().add(GetListEvent());
     });
   }
 
@@ -32,7 +32,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   }
 
   void didPopNext() {
-    context.read<MovieWatchlistBloc>().add(GetListEvent());
+    context.read<WatchlistMoviesBloc>().add(GetListEvent());
   }
 
   @override
@@ -43,13 +43,13 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<MovieWatchlistBloc, MovieWatchlistState>(
+        child: BlocBuilder<WatchlistMoviesBloc, WatchlistMoviesState>(
           builder: (context, state) {
-            if (state is MovieWatchlistLoading) {
+            if (state is WatchlistMoviesLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is MovieWatchlistLoaded) {
+            } else if (state is WatchlistMoviesLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final movie = state.result[index];

@@ -30,7 +30,8 @@ class _FakeEither_1<L, R> extends _i1.Fake implements _i3.Either<L, R> {}
 
 class _FakeGetTopRatedTv_2 extends _i1.Fake implements _i4.GetTopRatedTv {}
 
-class _FakeTvTopRatedState_3 extends _i1.Fake implements _i5.TvTopRatedState {}
+class _FakeTopRatedsTvsState_3 extends _i1.Fake
+    implements _i5.TopRatedsTvsState {}
 
 /// A class which mocks [GetTopRatedTv].
 ///
@@ -52,11 +53,11 @@ class MockGetTopRatedTv extends _i1.Mock implements _i4.GetTopRatedTv {
           as _i6.Future<_i3.Either<_i7.Failure, List<_i8.Tv>>>);
 }
 
-/// A class which mocks [TvTopRatedBloc].
+/// A class which mocks [TopRatedsTvsBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTvTopRatedBloc extends _i1.Mock implements _i5.TvTopRatedBloc {
-  MockTvTopRatedBloc() {
+class MockTopRatedsTvsBloc extends _i1.Mock implements _i5.TopRatedsTvsBloc {
+  MockTopRatedsTvsBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -65,40 +66,40 @@ class MockTvTopRatedBloc extends _i1.Mock implements _i5.TvTopRatedBloc {
       (super.noSuchMethod(Invocation.getter(#getTopRatedTv),
           returnValue: _FakeGetTopRatedTv_2()) as _i4.GetTopRatedTv);
   @override
-  _i5.TvTopRatedState get state =>
+  _i5.TopRatedsTvsState get state =>
       (super.noSuchMethod(Invocation.getter(#state),
-          returnValue: _FakeTvTopRatedState_3()) as _i5.TvTopRatedState);
+          returnValue: _FakeTopRatedsTvsState_3()) as _i5.TopRatedsTvsState);
   @override
-  _i6.Stream<_i5.TvTopRatedState> get stream =>
+  _i6.Stream<_i5.TopRatedsTvsState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i5.TvTopRatedState>.empty())
-          as _i6.Stream<_i5.TvTopRatedState>);
+              returnValue: Stream<_i5.TopRatedsTvsState>.empty())
+          as _i6.Stream<_i5.TopRatedsTvsState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i5.TvTopRatedEvent? event) =>
+  void add(_i5.TopRatedsTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i5.TvTopRatedEvent? event) =>
+  void onEvent(_i5.TopRatedsTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i5.TvTopRatedState? state) =>
+  void emit(_i5.TopRatedsTvsState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i5.TvTopRatedEvent>(
-          _i9.EventHandler<E, _i5.TvTopRatedState>? handler,
+  void on<E extends _i5.TopRatedsTvsEvent>(
+          _i9.EventHandler<E, _i5.TopRatedsTvsState>? handler,
           {_i9.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i9.Transition<_i5.TvTopRatedEvent, _i5.TvTopRatedState>?
+          _i9.Transition<_i5.TopRatedsTvsEvent, _i5.TopRatedsTvsState>?
               transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
@@ -107,7 +108,7 @@ class MockTvTopRatedBloc extends _i1.Mock implements _i5.TvTopRatedBloc {
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i9.Change<_i5.TvTopRatedState>? change) =>
+  void onChange(_i9.Change<_i5.TopRatedsTvsState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

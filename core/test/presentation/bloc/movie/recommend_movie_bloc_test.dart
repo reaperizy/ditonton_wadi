@@ -10,52 +10,52 @@ import 'package:mockito/mockito.dart';
 
 import 'recommend_movie_bloc_test.mocks.dart';
 
-@GenerateMocks([MovieRecommendationBloc,GetMovieRecommendations])
+@GenerateMocks([RecommendMoviesBloc,GetMovieRecommendations])
 void main() {
   late MockGetMovieRecommendations mockGetMovieRecommendation;
-  late MovieRecommendationBloc movieRecommendationBloc;
+  late RecommendMoviesBloc movieRecommendationBloc;
 
   setUp(() {
     mockGetMovieRecommendation = MockGetMovieRecommendations();
-    movieRecommendationBloc = MovieRecommendationBloc(
+    movieRecommendationBloc = RecommendMoviesBloc(
       getMovieRecommendations: mockGetMovieRecommendation,
     );
   });
 
   test("initial state should be empty", () {
-    expect(movieRecommendationBloc.state, MovieRecommendationEmpty());
+    expect(movieRecommendationBloc.state, RecommendMoviesEmpty());
   });
 
   const movieId = 1;
   final movieList = <Movie>[];
 
-  blocTest<MovieRecommendationBloc, MovieRecommendationState>(
+  blocTest<RecommendMoviesBloc, RecommendMoviesState>(
     'Should emit [Loading, Loaded] when data is gotten successfully',
     build: () {
       when(mockGetMovieRecommendation.execute(movieId))
           .thenAnswer((_) async => Right(movieList));
       return movieRecommendationBloc;
     },
-    act: (bloc) => bloc.add(const GetMovieRecommendationEvent(movieId)),
+    act: (bloc) => bloc.add(const GetRecommendMoviesEvent(movieId)),
     expect: () =>
-    [MovieRecommendationLoading(), MovieRecommendationLoaded(movieList)],
+    [RecommendMoviesLoading(), RecommendMoviesLoaded(movieList)],
     verify: (bloc) {
       verify(mockGetMovieRecommendation.execute(movieId));
     },
   );
 
   group('Recommendation Movies BLoC Test', () {
-    blocTest<MovieRecommendationBloc, MovieRecommendationState>(
+    blocTest<RecommendMoviesBloc, RecommendMoviesState>(
       'Should emit [Loading, Error] when get recommendation is unsuccessful',
       build: () {
         when(mockGetMovieRecommendation.execute(movieId))
             .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return movieRecommendationBloc;
       },
-      act: (bloc) => bloc.add(const GetMovieRecommendationEvent(movieId)),
+      act: (bloc) => bloc.add(const GetRecommendMoviesEvent(movieId)),
       expect: () => [
-        MovieRecommendationLoading(),
-        const MovieRecommendationError('Server Failure')
+        RecommendMoviesLoading(),
+        const RecommendMoviesError('Server Failure')
       ],
       verify: (bloc) {
         verify(mockGetMovieRecommendation.execute(movieId));

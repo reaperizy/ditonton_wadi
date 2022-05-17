@@ -38,18 +38,18 @@ class _FakeSaveWatchlistTv_2 extends _i1.Fake implements _i4.SaveWatchlistTv {}
 class _FakeRemoveWatchlistTv_3 extends _i1.Fake
     implements _i5.RemoveWatchlistTv {}
 
-class _FakeTvWatchlistState_4 extends _i1.Fake implements _i6.TvWatchlistState {
-}
+class _FakeWatchlistTvsState_4 extends _i1.Fake
+    implements _i6.WatchlistTvsState {}
 
 class _FakeEither_5<L, R> extends _i1.Fake implements _i7.Either<L, R> {}
 
 class _FakeTvRepository_6 extends _i1.Fake implements _i8.TvRepository {}
 
-/// A class which mocks [TvWatchlistBloc].
+/// A class which mocks [WatchlistTvsBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTvWatchlistBloc extends _i1.Mock implements _i6.TvWatchlistBloc {
-  MockTvWatchlistBloc() {
+class MockWatchlistTvsBloc extends _i1.Mock implements _i6.WatchlistTvsBloc {
+  MockWatchlistTvsBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -70,40 +70,40 @@ class MockTvWatchlistBloc extends _i1.Mock implements _i6.TvWatchlistBloc {
       (super.noSuchMethod(Invocation.getter(#removeWatchlist),
           returnValue: _FakeRemoveWatchlistTv_3()) as _i5.RemoveWatchlistTv);
   @override
-  _i6.TvWatchlistState get state =>
+  _i6.WatchlistTvsState get state =>
       (super.noSuchMethod(Invocation.getter(#state),
-          returnValue: _FakeTvWatchlistState_4()) as _i6.TvWatchlistState);
+          returnValue: _FakeWatchlistTvsState_4()) as _i6.WatchlistTvsState);
   @override
-  _i9.Stream<_i6.TvWatchlistState> get stream =>
+  _i9.Stream<_i6.WatchlistTvsState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i6.TvWatchlistState>.empty())
-          as _i9.Stream<_i6.TvWatchlistState>);
+              returnValue: Stream<_i6.WatchlistTvsState>.empty())
+          as _i9.Stream<_i6.WatchlistTvsState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i6.TvWatchlistEvent? event) =>
+  void add(_i6.WatchlistTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i6.TvWatchlistEvent? event) =>
+  void onEvent(_i6.WatchlistTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i6.TvWatchlistState? state) =>
+  void emit(_i6.WatchlistTvsState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i6.TvWatchlistEvent>(
-          _i10.EventHandler<E, _i6.TvWatchlistState>? handler,
+  void on<E extends _i6.WatchlistTvsEvent>(
+          _i10.EventHandler<E, _i6.WatchlistTvsState>? handler,
           {_i10.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i10.Transition<_i6.TvWatchlistEvent, _i6.TvWatchlistState>?
+          _i10.Transition<_i6.WatchlistTvsEvent, _i6.WatchlistTvsState>?
               transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
@@ -112,7 +112,7 @@ class MockTvWatchlistBloc extends _i1.Mock implements _i6.TvWatchlistBloc {
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i9.Future<void>);
   @override
-  void onChange(_i10.Change<_i6.TvWatchlistState>? change) =>
+  void onChange(_i10.Change<_i6.WatchlistTvsState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

@@ -28,19 +28,19 @@ import 'package:mockito/mockito.dart' as _i1;
 class _FakeGetMovieRecommendations_0 extends _i1.Fake
     implements _i2.GetMovieRecommendations {}
 
-class _FakeMovieRecommendationState_1 extends _i1.Fake
-    implements _i3.MovieRecommendationState {}
+class _FakeRecommendMoviesState_1 extends _i1.Fake
+    implements _i3.RecommendMoviesState {}
 
 class _FakeMovieRepository_2 extends _i1.Fake implements _i4.MovieRepository {}
 
 class _FakeEither_3<L, R> extends _i1.Fake implements _i5.Either<L, R> {}
 
-/// A class which mocks [MovieRecommendationBloc].
+/// A class which mocks [RecommendMoviesBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMovieRecommendationBloc extends _i1.Mock
-    implements _i3.MovieRecommendationBloc {
-  MockMovieRecommendationBloc() {
+class MockRecommendMoviesBloc extends _i1.Mock
+    implements _i3.RecommendMoviesBloc {
+  MockRecommendMoviesBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -50,42 +50,40 @@ class MockMovieRecommendationBloc extends _i1.Mock
               returnValue: _FakeGetMovieRecommendations_0())
           as _i2.GetMovieRecommendations);
   @override
-  _i3.MovieRecommendationState get state =>
-      (super.noSuchMethod(Invocation.getter(#state),
-              returnValue: _FakeMovieRecommendationState_1())
-          as _i3.MovieRecommendationState);
+  _i3.RecommendMoviesState get state => (super.noSuchMethod(
+      Invocation.getter(#state),
+      returnValue: _FakeRecommendMoviesState_1()) as _i3.RecommendMoviesState);
   @override
-  _i6.Stream<_i3.MovieRecommendationState> get stream =>
+  _i6.Stream<_i3.RecommendMoviesState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i3.MovieRecommendationState>.empty())
-          as _i6.Stream<_i3.MovieRecommendationState>);
+              returnValue: Stream<_i3.RecommendMoviesState>.empty())
+          as _i6.Stream<_i3.RecommendMoviesState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i3.MovieRecommendationEvent? event) =>
+  void add(_i3.RecommendMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i3.MovieRecommendationEvent? event) =>
+  void onEvent(_i3.RecommendMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i3.MovieRecommendationState? state) =>
+  void emit(_i3.RecommendMoviesState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i3.MovieRecommendationEvent>(
-          _i7.EventHandler<E, _i3.MovieRecommendationState>? handler,
+  void on<E extends _i3.RecommendMoviesEvent>(
+          _i7.EventHandler<E, _i3.RecommendMoviesState>? handler,
           {_i7.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i7.Transition<_i3.MovieRecommendationEvent,
-                  _i3.MovieRecommendationState>?
+          _i7.Transition<_i3.RecommendMoviesEvent, _i3.RecommendMoviesState>?
               transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
@@ -94,7 +92,7 @@ class MockMovieRecommendationBloc extends _i1.Mock
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i7.Change<_i3.MovieRecommendationState>? change) =>
+  void onChange(_i7.Change<_i3.RecommendMoviesState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

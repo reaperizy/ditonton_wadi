@@ -1,16 +1,16 @@
 part of 'reccomend_movie_bloc.dart';
 
-abstract class MovieRecommendationEvent extends Equatable {
-  const MovieRecommendationEvent();
+abstract class RecommendMoviesEvent extends Equatable {
+  const RecommendMoviesEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class GetMovieRecommendationEvent extends MovieRecommendationEvent {
+class GetRecommendMoviesEvent extends RecommendMoviesEvent {
   final int id;
 
-  const GetMovieRecommendationEvent(this.id);
+  const GetRecommendMoviesEvent(this.id);
 
   @override
   List<Object> get props => [];

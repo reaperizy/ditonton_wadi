@@ -38,19 +38,19 @@ class _FakeSaveWatchlist_2 extends _i1.Fake implements _i4.SaveWatchlist {}
 
 class _FakeRemoveWatchlist_3 extends _i1.Fake implements _i5.RemoveWatchlist {}
 
-class _FakeMovieWatchlistState_4 extends _i1.Fake
-    implements _i6.MovieWatchlistState {}
+class _FakeWatchlistMoviesState_4 extends _i1.Fake
+    implements _i6.WatchlistMoviesState {}
 
 class _FakeEither_5<L, R> extends _i1.Fake implements _i7.Either<L, R> {}
 
 class _FakeMovieRepository_6 extends _i1.Fake implements _i8.MovieRepository {}
 
-/// A class which mocks [MovieWatchlistBloc].
+/// A class which mocks [WatchlistMoviesBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMovieWatchlistBloc extends _i1.Mock
-    implements _i6.MovieWatchlistBloc {
-  MockMovieWatchlistBloc() {
+class MockWatchlistMoviesBloc extends _i1.Mock
+    implements _i6.WatchlistMoviesBloc {
+  MockWatchlistMoviesBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -71,40 +71,40 @@ class MockMovieWatchlistBloc extends _i1.Mock
       (super.noSuchMethod(Invocation.getter(#removeWatchlist),
           returnValue: _FakeRemoveWatchlist_3()) as _i5.RemoveWatchlist);
   @override
-  _i6.MovieWatchlistState get state => (super.noSuchMethod(
+  _i6.WatchlistMoviesState get state => (super.noSuchMethod(
       Invocation.getter(#state),
-      returnValue: _FakeMovieWatchlistState_4()) as _i6.MovieWatchlistState);
+      returnValue: _FakeWatchlistMoviesState_4()) as _i6.WatchlistMoviesState);
   @override
-  _i9.Stream<_i6.MovieWatchlistState> get stream =>
+  _i9.Stream<_i6.WatchlistMoviesState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i6.MovieWatchlistState>.empty())
-          as _i9.Stream<_i6.MovieWatchlistState>);
+              returnValue: Stream<_i6.WatchlistMoviesState>.empty())
+          as _i9.Stream<_i6.WatchlistMoviesState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i6.MovieWatchlistEvent? event) =>
+  void add(_i6.WatchlistMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i6.MovieWatchlistEvent? event) =>
+  void onEvent(_i6.WatchlistMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i6.MovieWatchlistState? state) =>
+  void emit(_i6.WatchlistMoviesState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i6.MovieWatchlistEvent>(
-          _i10.EventHandler<E, _i6.MovieWatchlistState>? handler,
+  void on<E extends _i6.WatchlistMoviesEvent>(
+          _i10.EventHandler<E, _i6.WatchlistMoviesState>? handler,
           {_i10.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i10.Transition<_i6.MovieWatchlistEvent, _i6.MovieWatchlistState>?
+          _i10.Transition<_i6.WatchlistMoviesEvent, _i6.WatchlistMoviesState>?
               transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
@@ -113,7 +113,7 @@ class MockMovieWatchlistBloc extends _i1.Mock
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i9.Future<void>);
   @override
-  void onChange(_i10.Change<_i6.MovieWatchlistState>? change) =>
+  void onChange(_i10.Change<_i6.WatchlistMoviesState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

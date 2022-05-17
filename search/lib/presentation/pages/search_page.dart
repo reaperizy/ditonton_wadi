@@ -23,7 +23,7 @@ class SearchPage extends StatelessWidget {
             TextField(
               onSubmitted: (query) {
                 context
-                    .read<MovieSearchBloc>()
+                    .read<SearchMoviesBloc>()
                     .add(MovieSearchQueryEvent(query));
               },
               decoration: const InputDecoration(
@@ -38,13 +38,13 @@ class SearchPage extends StatelessWidget {
               'Search Result',
               style: kHeading6,
             ),
-            BlocBuilder<MovieSearchBloc, MovieSearchState>(
+            BlocBuilder<SearchMoviesBloc, SearchMoviesState>(
               builder: (context, state) {
-                if (state is MovieSearchLoading) {
+                if (state is SearchMoviesLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state is MovieSearchLoaded) {
+                } else if (state is SearchMoviesLoaded) {
                   final result = state.result;
                   return Expanded(
                     child: ListView.builder(

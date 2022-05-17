@@ -6,21 +6,21 @@ import 'package:equatable/equatable.dart';
 part 'popular_movie_event.dart';
 part 'popular_movie_state.dart';
 
-class MoviePopularBloc extends Bloc<MoviePopularEvent, MoviePopularState> {
+class PopularsMoviesBloc extends Bloc<PopularsMoviesEvent, PopularsMoviesState> {
   final GetPopularMovies getPopularMovies;
 
-  MoviePopularBloc(
+  PopularsMoviesBloc(
     this.getPopularMovies,
-  ) : super(MoviePopularEmpty()) {
-    on<MoviePopularGetEvent>((event, emit) async {
-      emit(MoviePopularLoading());
+  ) : super(PopularsMoviesEmpty()) {
+    on<PopularsMoviesGetEvent>((event, emit) async {
+      emit(PopularsMoviesLoading());
       final result = await getPopularMovies.execute();
       result.fold(
         (failure) {
-          emit(MoviePopularError(failure.message));
+          emit(PopularsMoviesError(failure.message));
         },
         (data) {
-          emit(MoviePopularLoaded(data));
+          emit(PopularsMoviesLoaded(data));
         },
       );
     });

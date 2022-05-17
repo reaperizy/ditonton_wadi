@@ -6,21 +6,21 @@ import 'package:equatable/equatable.dart';
 part 'toprated_tv_event.dart';
 part 'toprated_tv_state.dart';
 
-class TvTopRatedBloc extends Bloc<TvTopRatedEvent, TvTopRatedState> {
+class TopRatedsTvsBloc extends Bloc<TopRatedsTvsEvent, TopRatedsTvsState> {
   final GetTopRatedTv getTopRatedTv;
 
-  TvTopRatedBloc(
+  TopRatedsTvsBloc(
     this.getTopRatedTv,
-  ) : super(TvTopRatedEmpty()) {
-    on<TvTopRatedGetEvent>((event, emit) async {
-      emit(TvTopRatedLoading());
+  ) : super(TopRatedsTvsEmpty()) {
+    on<TopRatedsTvsGetEvent>((event, emit) async {
+      emit(TopRatedsTvsLoading());
       final result = await getTopRatedTv.execute();
       result.fold(
         (failure) {
-          emit(TvTopRatedError(failure.message));
+          emit(TopRatedsTvsError(failure.message));
         },
         (data) {
-          emit(TvTopRatedLoaded(data));
+          emit(TopRatedsTvsLoaded(data));
         },
       );
     });

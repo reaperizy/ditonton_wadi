@@ -10,14 +10,14 @@ import 'package:mockito/mockito.dart';
 
 import 'tv_search_bloc_test.mocks.dart';
 
-@GenerateMocks([TvSearchBloc,SearchTv])
+@GenerateMocks([SearchTvsBloc,SearchTv])
 void main() {
   late MockSearchTv mockSearchTv;
-  late TvSearchBloc tvSearchBloc;
+  late SearchTvsBloc tvSearchBloc;
 
   setUp(() {
     mockSearchTv = MockSearchTv();
-    tvSearchBloc = TvSearchBloc(
+    tvSearchBloc = SearchTvsBloc(
       searchTv: mockSearchTv,
     );
   });
@@ -26,10 +26,10 @@ void main() {
   final tvList = <Tv>[];
 
   test("initial state should be empty", () {
-    expect(tvSearchBloc.state, TvSearchEmpty());
+    expect(tvSearchBloc.state, SearchTvsEmpty());
   });
 
-  blocTest<TvSearchBloc, TvSearchState>(
+  blocTest<SearchTvsBloc, SearchTvsState>(
     'Should emit [Loading, Loaded] when data is gotten successfully',
     build: () {
       when(mockSearchTv.execute(query))
@@ -37,14 +37,14 @@ void main() {
       return tvSearchBloc;
     },
     act: (bloc) => bloc.add(const TvSearchQueryEvent(query)),
-    expect: () => [TvSearchLoading(), TvSearchLoaded(tvList)],
+    expect: () => [SearchTvsLoading(), SearchTvsLoaded(tvList)],
     verify: (bloc) {
       verify(mockSearchTv.execute(query));
     },
   );
 
   group('Search Tv BLoC Test', () {
-    blocTest<TvSearchBloc, TvSearchState>(
+    blocTest<SearchTvsBloc, SearchTvsState>(
       'Should emit [Loading, Error] when get search is unsuccessful',
       build: () {
         when(mockSearchTv.execute(query))
@@ -53,7 +53,7 @@ void main() {
       },
       act: (bloc) => bloc.add(const TvSearchQueryEvent(query)),
       expect: () =>
-      [TvSearchLoading(), const TvSearchError('Server Failure')],
+      [SearchTvsLoading(), const SearchTvsError('Server Failure')],
       verify: (bloc) {
         verify(mockSearchTv.execute(query));
       },

@@ -6,22 +6,22 @@ import 'package:equatable/equatable.dart';
 part 'reccomend_movie_event.dart';
 part 'reccomend_movie_state.dart';
 
-class MovieRecommendationBloc
-    extends Bloc<MovieRecommendationEvent, MovieRecommendationState> {
+class RecommendMoviesBloc
+    extends Bloc<RecommendMoviesEvent, RecommendMoviesState> {
   final GetMovieRecommendations getMovieRecommendations;
 
-  MovieRecommendationBloc({
+  RecommendMoviesBloc({
     required this.getMovieRecommendations,
-  }) : super(MovieRecommendationEmpty()) {
-    on<GetMovieRecommendationEvent>((event, emit) async {
-      emit(MovieRecommendationLoading());
+  }) : super(RecommendMoviesEmpty()) {
+    on<GetRecommendMoviesEvent>((event, emit) async {
+      emit(RecommendMoviesLoading());
       final result = await getMovieRecommendations.execute(event.id);
       result.fold(
         (failure) {
-          emit(MovieRecommendationError(failure.message));
+          emit(RecommendMoviesError(failure.message));
         },
         (data) {
-          emit(MovieRecommendationLoaded(data));
+          emit(RecommendMoviesLoaded(data));
         },
       );
     });

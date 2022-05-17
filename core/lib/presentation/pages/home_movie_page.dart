@@ -33,9 +33,9 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<MovieNowPlayingBloc>().add(MovieNowPlayingGetEvent());
-      context.read<MoviePopularBloc>().add(MoviePopularGetEvent());
-      context.read<MovieTopRatedBloc>().add(MovieTopRatedGetEvent());
+      context.read<NowPlayingsMoviesBloc>().add(NowPlayingsMoviesGetEvent());
+      context.read<PopularsMoviesBloc>().add(PopularsMoviesGetEvent());
+      context.read<TopRatedsMoviesBloc>().add(TopRatedsMoviesGetEvent());
     });
   }
 
@@ -119,15 +119,15 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 'Now Playing Movies',
                 style: kHeading6,
               ),
-              BlocBuilder<MovieNowPlayingBloc, MovieNowPlayingState>(
+              BlocBuilder<NowPlayingsMoviesBloc, NowPlayingsMoviesState>(
                 builder: (context, state) {
-                  if (state is MovieNowPlayingLoading) {
+                  if (state is NowPlayingsMoviesLoading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
-                  } else if (state is MovieNowPlayingLoaded) {
+                  } else if (state is NowPlayingsMoviesLoaded) {
                     return MovieList(state.result);
-                  } else if (state is MovieNowPlayingError) {
+                  } else if (state is NowPlayingsMoviesError) {
                     return Text(state.message);
                   } else {
                     return const Text('Failed');
@@ -139,15 +139,15 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 onTap: () =>
                     Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
               ),
-              BlocBuilder<MoviePopularBloc, MoviePopularState>(
+              BlocBuilder<PopularsMoviesBloc, PopularsMoviesState>(
                 builder: (context, state) {
-                  if (state is MoviePopularLoading) {
+                  if (state is PopularsMoviesLoading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
-                  } else if (state is MoviePopularLoaded) {
+                  } else if (state is PopularsMoviesLoaded) {
                     return MovieList(state.result);
-                  } else if (state is MoviePopularError) {
+                  } else if (state is PopularsMoviesError) {
                     return Text(state.message);
                   } else {
                     return const Text('Failed');
@@ -159,15 +159,15 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 onTap: () =>
                     Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
               ),
-              BlocBuilder<MovieTopRatedBloc, MovieTopRatedState>(
+              BlocBuilder<TopRatedsMoviesBloc, TopRatedsMoviesState>(
                 builder: (context, state) {
-                  if (state is MovieTopRatedLoading) {
+                  if (state is TopRatedsMoviesLoading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
-                  } else if (state is MovieTopRatedLoaded) {
+                  } else if (state is TopRatedsMoviesLoaded) {
                     return MovieList(state.result);
-                  } else if (state is MovieTopRatedError) {
+                  } else if (state is TopRatedsMoviesError) {
                     return Text(state.message);
                   } else {
                     return const Text('Failed');

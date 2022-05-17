@@ -10,8 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'watchlist_movie_event.dart';
 part 'watchlist_movie_state.dart';
 
-class MovieWatchlistBloc
-    extends Bloc<MovieWatchlistEvent, MovieWatchlistState> {
+class WatchlistMoviesBloc
+    extends Bloc<WatchlistMoviesEvent, WatchlistMoviesState> {
   static const watchlistAddSuccessMessage = 'Added to Watchlist';
   static const watchlistRemoveSuccessMessage = 'Removed from Watchlist';
 
@@ -20,22 +20,22 @@ class MovieWatchlistBloc
   final SaveWatchlist saveWatchlist;
   final RemoveWatchlist removeWatchlist;
 
-  MovieWatchlistBloc({
+  WatchlistMoviesBloc({
     required this.getWatchlistMovies,
     required this.getWatchListStatus,
     required this.saveWatchlist,
     required this.removeWatchlist,
-  }) : super(MovieWatchlistEmpty()) {
+  }) : super(WatchlistMoviesEmpty()) {
     on<GetListEvent>((event, emit) async {
-      emit(MovieWatchlistLoading());
+      emit(WatchlistMoviesLoading());
       final result = await getWatchlistMovies.execute();
 
       result.fold(
         (failure) {
-          emit(MovieWatchlistError(failure.message));
+          emit(WatchlistMoviesError(failure.message));
         },
         (data) {
-          emit(MovieWatchlistLoaded(data));
+          emit(WatchlistMoviesLoaded(data));
         },
       );
     });
@@ -51,7 +51,7 @@ class MovieWatchlistBloc
       final result = await saveWatchlist.execute(movieDetail);
       result.fold(
         (failure) {
-          emit(MovieWatchlistError(failure.message));
+          emit(WatchlistMoviesError(failure.message));
         },
         (successMessage) {
           emit(MovieWatchlistSuccess(successMessage));
@@ -65,7 +65,7 @@ class MovieWatchlistBloc
 
       result.fold(
         (failure) {
-          emit(MovieWatchlistError(failure.message));
+          emit(WatchlistMoviesError(failure.message));
         },
         (successMessage) {
           emit(MovieWatchlistSuccess(successMessage));

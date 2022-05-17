@@ -18,7 +18,7 @@ class _TopRatedTelevisionPageState extends State<TopRatedTelevisionPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<TvTopRatedBloc>().add(TvTopRatedGetEvent());
+      context.read<TopRatedsTvsBloc>().add(TopRatedsTvsGetEvent());
     });
   }
 
@@ -30,13 +30,13 @@ class _TopRatedTelevisionPageState extends State<TopRatedTelevisionPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<TvTopRatedBloc, TvTopRatedState>(
+        child: BlocBuilder<TopRatedsTvsBloc, TopRatedsTvsState>(
           builder: (context, state) {
-            if (state is TvTopRatedLoading) {
+            if (state is TopRatedsTvsLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is TvTopRatedLoaded) {
+            } else if (state is TopRatedsTvsLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final tvs = state.result[index];

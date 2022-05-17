@@ -49,49 +49,49 @@ final locator = GetIt.instance;
 
 void init() {
   // bloc
-  locator.registerFactory(() => MovieDetailBloc(
+  locator.registerFactory(() => DetailsMoviesBloc(
         getMovieDetail: locator(),
       ));
   locator.registerFactory(
-    () => MovieNowPlayingBloc(locator()),
+    () => NowPlayingsMoviesBloc(locator()),
   );
   locator.registerFactory(
-    () => MoviePopularBloc(locator()),
+    () => PopularsMoviesBloc(locator()),
   );
-  locator.registerFactory(() => MovieRecommendationBloc(
+  locator.registerFactory(() => RecommendMoviesBloc(
         getMovieRecommendations: locator(),
       ));
-  locator.registerFactory(() => MovieSearchBloc(
+  locator.registerFactory(() => SearchMoviesBloc(
         searchMovies: locator(),
       ));
   locator.registerFactory(
-    () => MovieTopRatedBloc(locator()),
+    () => TopRatedsMoviesBloc(locator()),
   );
-  locator.registerFactory(() => TvDetailBloc(
+  locator.registerFactory(() => DetailsTvsBloc(
         getTvDetail: locator(),
       ));
   locator.registerFactory(
-    () => TvOnAirBloc(locator()),
+    () => OnAirsTvsBloc(locator()),
   );
   locator.registerFactory(
-    () => TvPopularBloc(locator()),
+    () => PopularsTvsBloc(locator()),
   );
-  locator.registerFactory(() => TvRecommendationBloc(
+  locator.registerFactory(() => RecommendTvsBloc(
         getTvRecommendations: locator(),
       ));
-  locator.registerFactory(() => TvSearchBloc(
+  locator.registerFactory(() => SearchTvsBloc(
         searchTv: locator(),
       ));
   locator.registerFactory(
-    () => TvTopRatedBloc(locator()),
+    () => TopRatedsTvsBloc(locator()),
   );
-  locator.registerFactory(() => MovieWatchlistBloc(
+  locator.registerFactory(() => WatchlistMoviesBloc(
         getWatchlistMovies: locator(),
         getWatchListStatus: locator(),
         saveWatchlist: locator(),
         removeWatchlist: locator(),
       ));
-  locator.registerFactory(() => TvWatchlistBloc(
+  locator.registerFactory(() => WatchlistTvsBloc(
         getWatchlistTv: locator(),
         getWatchListStatus: locator(),
         saveWatchlist: locator(),

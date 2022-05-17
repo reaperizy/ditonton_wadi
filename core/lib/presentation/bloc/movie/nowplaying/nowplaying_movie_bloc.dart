@@ -6,22 +6,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'nowplaying_movie_event.dart';
 part 'nowplaying_movie_state.dart';
 
-class MovieNowPlayingBloc
-    extends Bloc<MovieNowPlayingEvent, MovieNowPlayingState> {
+class NowPlayingsMoviesBloc
+    extends Bloc<NowPlayingsMoviesEvent, NowPlayingsMoviesState> {
   final GetNowPlayingMovies getNowPlayingMovies;
 
-  MovieNowPlayingBloc(
+  NowPlayingsMoviesBloc(
     this.getNowPlayingMovies,
-  ) : super(MovieNowPlayingEmpty()) {
-    on<MovieNowPlayingGetEvent>((event, emit) async {
-      emit(MovieNowPlayingLoading());
+  ) : super(NowPlayingsMoviesEmpty()) {
+    on<NowPlayingsMoviesGetEvent>((event, emit) async {
+      emit(NowPlayingsMoviesLoading());
       final result = await getNowPlayingMovies.execute();
       result.fold(
         (failure) {
-          emit(MovieNowPlayingError(failure.message));
+          emit(NowPlayingsMoviesError(failure.message));
         },
         (data) {
-          emit(MovieNowPlayingLoaded(data));
+          emit(NowPlayingsMoviesLoaded(data));
         },
       );
     });

@@ -1,29 +1,29 @@
 part of 'nowplaying_movie_bloc.dart';
 
-abstract class MovieNowPlayingState extends Equatable {
-  const MovieNowPlayingState();
+abstract class NowPlayingsMoviesState extends Equatable {
+  const NowPlayingsMoviesState();
 
   @override
   List<Object> get props => [];
 }
 
-class MovieNowPlayingEmpty extends MovieNowPlayingState {}
+class NowPlayingsMoviesEmpty extends NowPlayingsMoviesState {}
 
-class MovieNowPlayingLoading extends MovieNowPlayingState {}
+class NowPlayingsMoviesLoading extends NowPlayingsMoviesState {}
 
-class MovieNowPlayingError extends MovieNowPlayingState {
+class NowPlayingsMoviesError extends NowPlayingsMoviesState {
   final String message;
 
-  const MovieNowPlayingError(this.message);
+  const NowPlayingsMoviesError(this.message);
 
   @override
   List<Object> get props => [message];
 }
 
-class MovieNowPlayingLoaded extends MovieNowPlayingState {
+class NowPlayingsMoviesLoaded extends NowPlayingsMoviesState {
   final List<Movie> result;
 
-  const MovieNowPlayingLoaded(this.result);
+  const NowPlayingsMoviesLoaded(this.result);
 
   @override
   List<Object> get props => [result];

@@ -13,20 +13,20 @@ import 'package:mockito/mockito.dart';
 import '../../../dummy_data/dummy_objects.dart';
 import 'watchlist_movie_bloc_test.mocks.dart';
 
-@GenerateMocks([MovieWatchlistBloc,GetWatchlistMovies,GetWatchListStatus,RemoveWatchlist,SaveWatchlist])
+@GenerateMocks([WatchlistMoviesBloc,GetWatchlistMovies,GetWatchListStatus,RemoveWatchlist,SaveWatchlist])
 void main() {
   late MockGetWatchlistMovies mockGetWatchlistMovies;
   late MockGetWatchListStatus mockGetWatchListStatus;
   late MockSaveWatchlist mockSaveWatchlist;
   late MockRemoveWatchlist mockRemoveWatchlist;
-  late MovieWatchlistBloc movieWatchlistBloc;
+  late WatchlistMoviesBloc movieWatchlistBloc;
 
   setUp(() {
     mockGetWatchlistMovies = MockGetWatchlistMovies();
     mockGetWatchListStatus = MockGetWatchListStatus();
     mockSaveWatchlist = MockSaveWatchlist();
     mockRemoveWatchlist = MockRemoveWatchlist();
-    movieWatchlistBloc = MovieWatchlistBloc(
+    movieWatchlistBloc = WatchlistMoviesBloc(
       getWatchlistMovies: mockGetWatchlistMovies,
       getWatchListStatus: mockGetWatchListStatus,
       saveWatchlist: mockSaveWatchlist,
@@ -37,10 +37,10 @@ void main() {
   const movieId = 1;
 
   test("initial state should be empty", () {
-    expect(movieWatchlistBloc.state, MovieWatchlistEmpty());
+    expect(movieWatchlistBloc.state, WatchlistMoviesEmpty());
   });
 
-  blocTest<MovieWatchlistBloc, MovieWatchlistState>(
+  blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
     'Should emit [Loading, Loaded] when data is gotten successfully',
     build: () {
       when(mockGetWatchlistMovies.execute())
@@ -49,13 +49,13 @@ void main() {
     },
     act: (bloc) => bloc.add(GetListEvent()),
     expect: () =>
-    [MovieWatchlistLoading(), MovieWatchlistLoaded(testWatchlistMovieList)],
+    [WatchlistMoviesLoading(), WatchlistMoviesLoaded(testWatchlistMovieList)],
     verify: (bloc) {
       verify(mockGetWatchlistMovies.execute());
     },
   );
 
-  blocTest<MovieWatchlistBloc, MovieWatchlistState>(
+  blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
     'Should emit [Loading, Error] when get watchlist is unsuccessful',
     build: () {
       when(mockGetWatchlistMovies.execute())
@@ -64,13 +64,13 @@ void main() {
     },
     act: (bloc) => bloc.add(GetListEvent()),
     expect: () =>
-    [MovieWatchlistLoading(), const MovieWatchlistError("Can't get data")],
+    [WatchlistMoviesLoading(), const WatchlistMoviesError("Can't get data")],
     verify: (bloc) {
       verify(mockGetWatchlistMovies.execute());
     },
   );
 
-  blocTest<MovieWatchlistBloc, MovieWatchlistState>(
+  blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
     'Should emit [Loaded] when get status movie watchlist is successful',
     build: () {
       when(mockGetWatchListStatus.execute(movieId))
@@ -84,7 +84,7 @@ void main() {
     },
   );
 
-  blocTest<MovieWatchlistBloc, MovieWatchlistState>(
+  blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
     'Should emit [success] when add movie item to watchlist is successful',
     build: () {
       when(mockSaveWatchlist.execute(testMovieDetail))
@@ -98,7 +98,7 @@ void main() {
     },
   );
 
-  blocTest<MovieWatchlistBloc, MovieWatchlistState>(
+  blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
     'Should emit [success] when remove movie item to watchlist is successful',
     build: () {
       when(mockRemoveWatchlist.execute(testMovieDetail))
@@ -112,7 +112,7 @@ void main() {
     },
   );
 
-  blocTest<MovieWatchlistBloc, MovieWatchlistState>(
+  blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
     'Should emit [error] when add movie item to watchlist is unsuccessful',
     build: () {
       when(mockSaveWatchlist.execute(testMovieDetail))
@@ -120,13 +120,13 @@ void main() {
       return movieWatchlistBloc;
     },
     act: (bloc) => bloc.add(const AddItemMovieEvent(testMovieDetail)),
-    expect: () => [const MovieWatchlistError("Failed")],
+    expect: () => [const WatchlistMoviesError("Failed")],
     verify: (bloc) {
       verify(mockSaveWatchlist.execute(testMovieDetail));
     },
   );
 
-  blocTest<MovieWatchlistBloc, MovieWatchlistState>(
+  blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
     'Should emit [error] when remove movie item to watchlist is unsuccessful',
     build: () {
       when(mockRemoveWatchlist.execute(testMovieDetail))
@@ -134,7 +134,7 @@ void main() {
       return movieWatchlistBloc;
     },
     act: (bloc) => bloc.add(const RemoveItemMovieEvent(testMovieDetail)),
-    expect: () => [const MovieWatchlistError("Failed")],
+    expect: () => [const WatchlistMoviesError("Failed")],
     verify: (bloc) {
       verify(mockRemoveWatchlist.execute(testMovieDetail));
     },

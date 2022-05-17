@@ -31,8 +31,8 @@ class _FakeEither_1<L, R> extends _i1.Fake implements _i3.Either<L, R> {}
 class _FakeGetTopRatedMovies_2 extends _i1.Fake
     implements _i4.GetTopRatedMovies {}
 
-class _FakeMovieTopRatedState_3 extends _i1.Fake
-    implements _i5.MovieTopRatedState {}
+class _FakeTopRatedsMoviesState_3 extends _i1.Fake
+    implements _i5.TopRatedsMoviesState {}
 
 /// A class which mocks [GetTopRatedMovies].
 ///
@@ -54,11 +54,12 @@ class MockGetTopRatedMovies extends _i1.Mock implements _i4.GetTopRatedMovies {
           .Future<_i3.Either<_i7.Failure, List<_i8.Movie>>>);
 }
 
-/// A class which mocks [MovieTopRatedBloc].
+/// A class which mocks [TopRatedsMoviesBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMovieTopRatedBloc extends _i1.Mock implements _i5.MovieTopRatedBloc {
-  MockMovieTopRatedBloc() {
+class MockTopRatedsMoviesBloc extends _i1.Mock
+    implements _i5.TopRatedsMoviesBloc {
+  MockTopRatedsMoviesBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -67,40 +68,40 @@ class MockMovieTopRatedBloc extends _i1.Mock implements _i5.MovieTopRatedBloc {
       (super.noSuchMethod(Invocation.getter(#getTopRatedMovies),
           returnValue: _FakeGetTopRatedMovies_2()) as _i4.GetTopRatedMovies);
   @override
-  _i5.MovieTopRatedState get state =>
-      (super.noSuchMethod(Invocation.getter(#state),
-          returnValue: _FakeMovieTopRatedState_3()) as _i5.MovieTopRatedState);
+  _i5.TopRatedsMoviesState get state => (super.noSuchMethod(
+      Invocation.getter(#state),
+      returnValue: _FakeTopRatedsMoviesState_3()) as _i5.TopRatedsMoviesState);
   @override
-  _i6.Stream<_i5.MovieTopRatedState> get stream =>
+  _i6.Stream<_i5.TopRatedsMoviesState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i5.MovieTopRatedState>.empty())
-          as _i6.Stream<_i5.MovieTopRatedState>);
+              returnValue: Stream<_i5.TopRatedsMoviesState>.empty())
+          as _i6.Stream<_i5.TopRatedsMoviesState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i5.MovieTopRatedEvent? event) =>
+  void add(_i5.TopRatedsMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i5.MovieTopRatedEvent? event) =>
+  void onEvent(_i5.TopRatedsMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i5.MovieTopRatedState? state) =>
+  void emit(_i5.TopRatedsMoviesState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i5.MovieTopRatedEvent>(
-          _i9.EventHandler<E, _i5.MovieTopRatedState>? handler,
+  void on<E extends _i5.TopRatedsMoviesEvent>(
+          _i9.EventHandler<E, _i5.TopRatedsMoviesState>? handler,
           {_i9.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i9.Transition<_i5.MovieTopRatedEvent, _i5.MovieTopRatedState>?
+          _i9.Transition<_i5.TopRatedsMoviesEvent, _i5.TopRatedsMoviesState>?
               transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
@@ -109,7 +110,7 @@ class MockMovieTopRatedBloc extends _i1.Mock implements _i5.MovieTopRatedBloc {
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i9.Change<_i5.MovieTopRatedState>? change) =>
+  void onChange(_i9.Change<_i5.TopRatedsMoviesState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

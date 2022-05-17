@@ -18,7 +18,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<MovieTopRatedBloc>().add(MovieTopRatedGetEvent());
+      context.read<TopRatedsMoviesBloc>().add(TopRatedsMoviesGetEvent());
     });
   }
 
@@ -30,13 +30,13 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<MovieTopRatedBloc, MovieTopRatedState>(
+        child: BlocBuilder<TopRatedsMoviesBloc, TopRatedsMoviesState>(
           builder: (context, state) {
-            if (state is MovieTopRatedLoading) {
+            if (state is TopRatedsMoviesLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is MovieTopRatedLoaded) {
+            } else if (state is TopRatedsMoviesLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final movie = state.result[index];

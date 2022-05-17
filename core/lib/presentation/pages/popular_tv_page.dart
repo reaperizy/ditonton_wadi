@@ -18,7 +18,7 @@ class _PopularTelevisionPageState extends State<PopularTelevisionPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<TvPopularBloc>().add(TvPopularGetEvent());
+      context.read<PopularsTvsBloc>().add(PopularsTvsGetEvent());
     });
   }
 
@@ -30,13 +30,13 @@ class _PopularTelevisionPageState extends State<PopularTelevisionPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<TvPopularBloc, TvPopularState>(
+        child: BlocBuilder<PopularsTvsBloc, PopularsTvsState>(
           builder: (context, state) {
-            if (state is TvPopularLoading) {
+            if (state is PopularsTvsLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is TvPopularLoaded) {
+            } else if (state is PopularsTvsLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final tvs = state.result[index];

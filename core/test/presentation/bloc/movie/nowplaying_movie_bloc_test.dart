@@ -10,48 +10,48 @@ import 'package:mockito/mockito.dart';
 
 import 'nowplaying_movie_bloc_test.mocks.dart';
 
-@GenerateMocks([MovieNowPlayingBloc,GetNowPlayingMovies])
+@GenerateMocks([NowPlayingsMoviesBloc,GetNowPlayingMovies])
 void main() {
   late MockGetNowPlayingMovies mockGetNowPlayingMovies;
-  late MovieNowPlayingBloc movieNowPlayingBloc;
+  late NowPlayingsMoviesBloc movieNowPlayingBloc;
 
   setUp(() {
     mockGetNowPlayingMovies = MockGetNowPlayingMovies();
-    movieNowPlayingBloc = MovieNowPlayingBloc(mockGetNowPlayingMovies);
+    movieNowPlayingBloc = NowPlayingsMoviesBloc(mockGetNowPlayingMovies);
   });
 
   final movieList = <Movie>[];
 
   test("initial state should be empty", () {
-    expect(movieNowPlayingBloc.state, MovieNowPlayingEmpty());
+    expect(movieNowPlayingBloc.state, NowPlayingsMoviesEmpty());
   });
 
   group('Now Playing Movies BLoC Test', () {
-    blocTest<MovieNowPlayingBloc, MovieNowPlayingState>(
+    blocTest<NowPlayingsMoviesBloc, NowPlayingsMoviesState>(
       'Should emit [Loading, Loaded] when data is gotten successfully',
       build: () {
         when(mockGetNowPlayingMovies.execute())
             .thenAnswer((_) async => Right(movieList));
         return movieNowPlayingBloc;
       },
-      act: (bloc) => bloc.add(MovieNowPlayingGetEvent()),
-      expect: () => [MovieNowPlayingLoading(), MovieNowPlayingLoaded(movieList)],
+      act: (bloc) => bloc.add(NowPlayingsMoviesGetEvent()),
+      expect: () => [NowPlayingsMoviesLoading(), NowPlayingsMoviesLoaded(movieList)],
       verify: (bloc) {
         verify(mockGetNowPlayingMovies.execute());
       },
     );
 
-    blocTest<MovieNowPlayingBloc, MovieNowPlayingState>(
+    blocTest<NowPlayingsMoviesBloc, NowPlayingsMoviesState>(
       'Should emit [Loading, Error] when get now playing is unsuccessful',
       build: () {
         when(mockGetNowPlayingMovies.execute())
             .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return movieNowPlayingBloc;
       },
-      act: (bloc) => bloc.add(MovieNowPlayingGetEvent()),
+      act: (bloc) => bloc.add(NowPlayingsMoviesGetEvent()),
       expect: () => [
-        MovieNowPlayingLoading(),
-        const MovieNowPlayingError('Server Failure')
+        NowPlayingsMoviesLoading(),
+        const NowPlayingsMoviesError('Server Failure')
       ],
       verify: (bloc) {
         verify(mockGetNowPlayingMovies.execute());

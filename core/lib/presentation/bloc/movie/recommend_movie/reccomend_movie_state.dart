@@ -1,29 +1,29 @@
 part of 'reccomend_movie_bloc.dart';
 
-abstract class MovieRecommendationState extends Equatable {
-  const MovieRecommendationState();
+abstract class RecommendMoviesState extends Equatable {
+  const RecommendMoviesState();
 
   @override
   List<Object> get props => [];
 }
 
-class MovieRecommendationEmpty extends MovieRecommendationState {}
+class RecommendMoviesEmpty extends RecommendMoviesState {}
 
-class MovieRecommendationLoading extends MovieRecommendationState {}
+class RecommendMoviesLoading extends RecommendMoviesState {}
 
-class MovieRecommendationError extends MovieRecommendationState {
+class RecommendMoviesError extends RecommendMoviesState {
   final String message;
 
-  const MovieRecommendationError(this.message);
+  const RecommendMoviesError(this.message);
 
   @override
   List<Object> get props => [message];
 }
 
-class MovieRecommendationLoaded extends MovieRecommendationState {
+class RecommendMoviesLoaded extends RecommendMoviesState {
   final List<Movie> movie;
 
-  const MovieRecommendationLoaded(this.movie);
+  const RecommendMoviesLoaded(this.movie);
 
   @override
   List<Object> get props => [movie];

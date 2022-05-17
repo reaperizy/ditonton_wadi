@@ -26,18 +26,18 @@ import 'package:search/presentation/bloc/search_movie/search_movie_bloc.dart'
 
 class _FakeSearchMovies_0 extends _i1.Fake implements _i2.SearchMovies {}
 
-class _FakeMovieSearchState_1 extends _i1.Fake implements _i3.MovieSearchState {
-}
+class _FakeSearchMoviesState_1 extends _i1.Fake
+    implements _i3.SearchMoviesState {}
 
 class _FakeMovieRepository_2 extends _i1.Fake implements _i4.MovieRepository {}
 
 class _FakeEither_3<L, R> extends _i1.Fake implements _i5.Either<L, R> {}
 
-/// A class which mocks [MovieSearchBloc].
+/// A class which mocks [SearchMoviesBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMovieSearchBloc extends _i1.Mock implements _i3.MovieSearchBloc {
-  MockMovieSearchBloc() {
+class MockSearchMoviesBloc extends _i1.Mock implements _i3.SearchMoviesBloc {
+  MockSearchMoviesBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -46,40 +46,40 @@ class MockMovieSearchBloc extends _i1.Mock implements _i3.MovieSearchBloc {
       (super.noSuchMethod(Invocation.getter(#searchMovies),
           returnValue: _FakeSearchMovies_0()) as _i2.SearchMovies);
   @override
-  _i3.MovieSearchState get state =>
+  _i3.SearchMoviesState get state =>
       (super.noSuchMethod(Invocation.getter(#state),
-          returnValue: _FakeMovieSearchState_1()) as _i3.MovieSearchState);
+          returnValue: _FakeSearchMoviesState_1()) as _i3.SearchMoviesState);
   @override
-  _i6.Stream<_i3.MovieSearchState> get stream =>
+  _i6.Stream<_i3.SearchMoviesState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i3.MovieSearchState>.empty())
-          as _i6.Stream<_i3.MovieSearchState>);
+              returnValue: Stream<_i3.SearchMoviesState>.empty())
+          as _i6.Stream<_i3.SearchMoviesState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i3.MovieSearchEvent? event) =>
+  void add(_i3.SearchMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i3.MovieSearchEvent? event) =>
+  void onEvent(_i3.SearchMoviesEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i3.MovieSearchState? state) =>
+  void emit(_i3.SearchMoviesState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i3.MovieSearchEvent>(
-          _i7.EventHandler<E, _i3.MovieSearchState>? handler,
+  void on<E extends _i3.SearchMoviesEvent>(
+          _i7.EventHandler<E, _i3.SearchMoviesState>? handler,
           {_i7.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i7.Transition<_i3.MovieSearchEvent, _i3.MovieSearchState>?
+          _i7.Transition<_i3.SearchMoviesEvent, _i3.SearchMoviesState>?
               transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
@@ -88,7 +88,7 @@ class MockMovieSearchBloc extends _i1.Mock implements _i3.MovieSearchBloc {
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i7.Change<_i3.MovieSearchState>? change) =>
+  void onChange(_i7.Change<_i3.SearchMoviesState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

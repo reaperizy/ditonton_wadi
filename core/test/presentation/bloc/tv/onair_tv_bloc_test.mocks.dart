@@ -25,17 +25,17 @@ import 'package:mockito/mockito.dart' as _i1;
 
 class _FakeGetNowPlayingTv_0 extends _i1.Fake implements _i2.GetNowPlayingTv {}
 
-class _FakeTvOnAirState_1 extends _i1.Fake implements _i3.TvOnAirState {}
+class _FakeOnAirsTvsState_1 extends _i1.Fake implements _i3.OnAirsTvsState {}
 
 class _FakeTvRepository_2 extends _i1.Fake implements _i4.TvRepository {}
 
 class _FakeEither_3<L, R> extends _i1.Fake implements _i5.Either<L, R> {}
 
-/// A class which mocks [TvOnAirBloc].
+/// A class which mocks [OnAirsTvsBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTvOnAirBloc extends _i1.Mock implements _i3.TvOnAirBloc {
-  MockTvOnAirBloc() {
+class MockOnAirsTvsBloc extends _i1.Mock implements _i3.OnAirsTvsBloc {
+  MockOnAirsTvsBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -44,39 +44,39 @@ class MockTvOnAirBloc extends _i1.Mock implements _i3.TvOnAirBloc {
       (super.noSuchMethod(Invocation.getter(#getOnAirTv),
           returnValue: _FakeGetNowPlayingTv_0()) as _i2.GetNowPlayingTv);
   @override
-  _i3.TvOnAirState get state => (super.noSuchMethod(Invocation.getter(#state),
-      returnValue: _FakeTvOnAirState_1()) as _i3.TvOnAirState);
+  _i3.OnAirsTvsState get state => (super.noSuchMethod(Invocation.getter(#state),
+      returnValue: _FakeOnAirsTvsState_1()) as _i3.OnAirsTvsState);
   @override
-  _i6.Stream<_i3.TvOnAirState> get stream =>
+  _i6.Stream<_i3.OnAirsTvsState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i3.TvOnAirState>.empty())
-          as _i6.Stream<_i3.TvOnAirState>);
+              returnValue: Stream<_i3.OnAirsTvsState>.empty())
+          as _i6.Stream<_i3.OnAirsTvsState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i3.TvOnAirEvent? event) =>
+  void add(_i3.OnAirsTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i3.TvOnAirEvent? event) =>
+  void onEvent(_i3.OnAirsTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i3.TvOnAirState? state) =>
+  void emit(_i3.OnAirsTvsState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i3.TvOnAirEvent>(
-          _i7.EventHandler<E, _i3.TvOnAirState>? handler,
+  void on<E extends _i3.OnAirsTvsEvent>(
+          _i7.EventHandler<E, _i3.OnAirsTvsState>? handler,
           {_i7.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i7.Transition<_i3.TvOnAirEvent, _i3.TvOnAirState>? transition) =>
+          _i7.Transition<_i3.OnAirsTvsEvent, _i3.OnAirsTvsState>? transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
   @override
@@ -84,7 +84,7 @@ class MockTvOnAirBloc extends _i1.Mock implements _i3.TvOnAirBloc {
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i7.Change<_i3.TvOnAirState>? change) =>
+  void onChange(_i7.Change<_i3.OnAirsTvsState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

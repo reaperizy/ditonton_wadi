@@ -6,21 +6,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'onair_tv_event.dart';
 part 'onair_tv_state.dart';
 
-class TvOnAirBloc extends Bloc<TvOnAirEvent, TvOnAirState> {
+class OnAirsTvsBloc extends Bloc<OnAirsTvsEvent, OnAirsTvsState> {
   final GetNowPlayingTv getOnAirTv;
 
-  TvOnAirBloc(
+  OnAirsTvsBloc(
     this.getOnAirTv,
-  ) : super(TvOnAirEmpty()) {
-    on<TvOnAirGetEvent>((event, emit) async {
-      emit(TvOnAirLoading());
+  ) : super(OnAirsTvsEmpty()) {
+    on<OnAirsTvsGetEvent>((event, emit) async {
+      emit(OnAirsTvsLoading());
       final result = await getOnAirTv.execute();
       result.fold(
         (failure) {
-          emit(TvOnAirError(failure.message));
+          emit(OnAirsTvsError(failure.message));
         },
         (data) {
-          emit(TvOnAirLoaded(data));
+          emit(OnAirsTvsLoaded(data));
         },
       );
     });

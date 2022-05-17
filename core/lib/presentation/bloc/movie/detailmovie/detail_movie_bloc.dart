@@ -6,21 +6,21 @@ import 'package:equatable/equatable.dart';
 part 'detail_movie_event.dart';
 part 'detail_movie_state.dart';
 
-class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
+class DetailsMoviesBloc extends Bloc<DetailsMoviesEvent, DetailsMoviesState> {
   final GetMovieDetail getMovieDetail;
 
-  MovieDetailBloc({
+  DetailsMoviesBloc({
     required this.getMovieDetail,
-  }) : super(DetailMovieEmpty()) {
-    on<GetMovieDetailEvent>((event, emit) async {
-      emit(DetailMovieLoading());
+  }) : super(MoviesDetailsEmpty()) {
+    on<GetDetailsMoviesEvent>((event, emit) async {
+      emit(MoviesDetailsLoading());
       final result = await getMovieDetail.execute(event.id);
       result.fold(
         (failure) {
-          emit(DetailMovieError(failure.message));
+          emit(MoviesDetailsError(failure.message));
         },
         (data) {
-          emit(DetailMovieLoaded(data));
+          emit(MoviesDetailsLoaded(data));
         },
       );
     });

@@ -29,7 +29,7 @@ class _FakeEither_1<L, R> extends _i1.Fake implements _i3.Either<L, R> {}
 
 class _FakeGetTvDetail_2 extends _i1.Fake implements _i4.GetTvDetail {}
 
-class _FakeTvDetailState_3 extends _i1.Fake implements _i5.TvDetailState {}
+class _FakeDetailsTvsState_3 extends _i1.Fake implements _i5.DetailsTvsState {}
 
 /// A class which mocks [GetTvDetail].
 ///
@@ -51,11 +51,11 @@ class MockGetTvDetail extends _i1.Mock implements _i4.GetTvDetail {
           as _i6.Future<_i3.Either<_i7.Failure, _i8.TvDetail>>);
 }
 
-/// A class which mocks [TvDetailBloc].
+/// A class which mocks [DetailsTvsBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTvDetailBloc extends _i1.Mock implements _i5.TvDetailBloc {
-  MockTvDetailBloc() {
+class MockDetailsTvsBloc extends _i1.Mock implements _i5.DetailsTvsBloc {
+  MockDetailsTvsBloc() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -64,39 +64,41 @@ class MockTvDetailBloc extends _i1.Mock implements _i5.TvDetailBloc {
       (super.noSuchMethod(Invocation.getter(#getTvDetail),
           returnValue: _FakeGetTvDetail_2()) as _i4.GetTvDetail);
   @override
-  _i5.TvDetailState get state => (super.noSuchMethod(Invocation.getter(#state),
-      returnValue: _FakeTvDetailState_3()) as _i5.TvDetailState);
+  _i5.DetailsTvsState get state =>
+      (super.noSuchMethod(Invocation.getter(#state),
+          returnValue: _FakeDetailsTvsState_3()) as _i5.DetailsTvsState);
   @override
-  _i6.Stream<_i5.TvDetailState> get stream =>
+  _i6.Stream<_i5.DetailsTvsState> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
-              returnValue: Stream<_i5.TvDetailState>.empty())
-          as _i6.Stream<_i5.TvDetailState>);
+              returnValue: Stream<_i5.DetailsTvsState>.empty())
+          as _i6.Stream<_i5.DetailsTvsState>);
   @override
   bool get isClosed =>
       (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
           as bool);
   @override
-  void add(_i5.TvDetailEvent? event) =>
+  void add(_i5.DetailsTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#add, [event]),
           returnValueForMissingStub: null);
   @override
-  void onEvent(_i5.TvDetailEvent? event) =>
+  void onEvent(_i5.DetailsTvsEvent? event) =>
       super.noSuchMethod(Invocation.method(#onEvent, [event]),
           returnValueForMissingStub: null);
   @override
-  void emit(_i5.TvDetailState? state) =>
+  void emit(_i5.DetailsTvsState? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
           returnValueForMissingStub: null);
   @override
-  void on<E extends _i5.TvDetailEvent>(
-          _i9.EventHandler<E, _i5.TvDetailState>? handler,
+  void on<E extends _i5.DetailsTvsEvent>(
+          _i9.EventHandler<E, _i5.DetailsTvsState>? handler,
           {_i9.EventTransformer<E>? transformer}) =>
       super.noSuchMethod(
           Invocation.method(#on, [handler], {#transformer: transformer}),
           returnValueForMissingStub: null);
   @override
   void onTransition(
-          _i9.Transition<_i5.TvDetailEvent, _i5.TvDetailState>? transition) =>
+          _i9.Transition<_i5.DetailsTvsEvent, _i5.DetailsTvsState>?
+              transition) =>
       super.noSuchMethod(Invocation.method(#onTransition, [transition]),
           returnValueForMissingStub: null);
   @override
@@ -104,7 +106,7 @@ class MockTvDetailBloc extends _i1.Mock implements _i5.TvDetailBloc {
       returnValue: Future<void>.value(),
       returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
   @override
-  void onChange(_i9.Change<_i5.TvDetailState>? change) =>
+  void onChange(_i9.Change<_i5.DetailsTvsState>? change) =>
       super.noSuchMethod(Invocation.method(#onChange, [change]),
           returnValueForMissingStub: null);
   @override

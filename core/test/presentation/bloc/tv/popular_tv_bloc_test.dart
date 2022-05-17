@@ -10,45 +10,45 @@ import 'package:mockito/mockito.dart';
 
 import 'popular_tv_bloc_test.mocks.dart';
 
-@GenerateMocks([GetPopularTv, TvPopularBloc])
+@GenerateMocks([GetPopularTv, PopularsTvsBloc])
 void main() {
   late MockGetPopularTv mockGetPopularTv;
-  late TvPopularBloc tvPopularBloc;
+  late PopularsTvsBloc tvPopularBloc;
 
   setUp(() {
     mockGetPopularTv = MockGetPopularTv();
-    tvPopularBloc = TvPopularBloc(mockGetPopularTv);
+    tvPopularBloc = PopularsTvsBloc(mockGetPopularTv);
   });
 
   final TvList = <Tv>[];
 
   test("initial state should be empty", () {
-    expect(tvPopularBloc.state, TvPopularEmpty());
+    expect(tvPopularBloc.state, PopularsTvsEmpty());
   });
 
   group('Popular Tv BLoC Test', () {
-    blocTest<TvPopularBloc, TvPopularState>(
+    blocTest<PopularsTvsBloc, PopularsTvsState>(
       'Should emit [Loading, Loaded] when data is gotten successfully',
       build: () {
         when(mockGetPopularTv.execute()).thenAnswer((_) async => Right(TvList));
         return tvPopularBloc;
       },
-      act: (bloc) => bloc.add(TvPopularGetEvent()),
-      expect: () => [TvPopularLoading(), TvPopularLoaded(TvList)],
+      act: (bloc) => bloc.add(PopularsTvsGetEvent()),
+      expect: () => [PopularsTvsLoading(), PopularsTvsLoaded(TvList)],
       verify: (bloc) {
         verify(mockGetPopularTv.execute());
       },
     );
 
-    blocTest<TvPopularBloc, TvPopularState>(
+    blocTest<PopularsTvsBloc, PopularsTvsState>(
       'Should emit [Loading, Error] when get popular is unsuccessful',
       build: () {
         when(mockGetPopularTv.execute())
             .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return tvPopularBloc;
       },
-      act: (bloc) => bloc.add(TvPopularGetEvent()),
-      expect: () => [TvPopularLoading(),  const TvPopularError('Server Failure')],
+      act: (bloc) => bloc.add(PopularsTvsGetEvent()),
+      expect: () => [PopularsTvsLoading(),  const PopularsTvsError('Server Failure')],
       verify: (bloc) {
         verify(mockGetPopularTv.execute());
       },

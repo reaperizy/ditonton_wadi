@@ -10,14 +10,14 @@ import 'package:mockito/mockito.dart';
 
 import 'movie_search_bloc_test.mocks.dart';
 
-@GenerateMocks([MovieSearchBloc,SearchMovies])
+@GenerateMocks([SearchMoviesBloc,SearchMovies])
 void main() {
   late MockSearchMovies mockSearchMovies;
-  late MovieSearchBloc movieSearchBloc;
+  late SearchMoviesBloc movieSearchBloc;
 
   setUp(() {
     mockSearchMovies = MockSearchMovies();
-    movieSearchBloc = MovieSearchBloc(
+    movieSearchBloc = SearchMoviesBloc(
       searchMovies: mockSearchMovies,
     );
   });
@@ -26,10 +26,10 @@ void main() {
   final movieList = <Movie>[];
 
   test("initial state should be empty", () {
-    expect(movieSearchBloc.state, MovieSearchEmpty());
+    expect(movieSearchBloc.state, SearchMoviesEmpty());
   });
 
-  blocTest<MovieSearchBloc, MovieSearchState>(
+  blocTest<SearchMoviesBloc, SearchMoviesState>(
     'Should emit [Loading, Loaded] when data is gotten successfully',
     build: () {
       when(mockSearchMovies.execute(query))
@@ -37,14 +37,14 @@ void main() {
       return movieSearchBloc;
     },
     act: (bloc) => bloc.add(const MovieSearchQueryEvent(query)),
-    expect: () => [MovieSearchLoading(), MovieSearchLoaded(movieList)],
+    expect: () => [SearchMoviesLoading(), SearchMoviesLoaded(movieList)],
     verify: (bloc) {
       verify(mockSearchMovies.execute(query));
     },
   );
 
   group('Search Movies BLoC Test', () {
-    blocTest<MovieSearchBloc, MovieSearchState>(
+    blocTest<SearchMoviesBloc, SearchMoviesState>(
       'Should emit [Loading, Error] when get search is unsuccessful',
       build: () {
         when(mockSearchMovies.execute(query))
@@ -53,7 +53,7 @@ void main() {
       },
       act: (bloc) => bloc.add(const MovieSearchQueryEvent(query)),
       expect: () =>
-      [MovieSearchLoading(), const MovieSearchError('Server Failure')],
+      [SearchMoviesLoading(), const SearchMoviesError('Server Failure')],
       verify: (bloc) {
         verify(mockSearchMovies.execute(query));
       },

@@ -1,47 +1,47 @@
 part of 'watchlist_tv_bloc.dart';
 
-abstract class TvWatchlistState extends Equatable {
-  const TvWatchlistState();
+abstract class WatchlistTvsState extends Equatable {
+  const WatchlistTvsState();
 
   @override
   List<Object> get props => [];
 }
 
-class TvWatchlistEmpty extends TvWatchlistState {}
+class WatchlistTvsEmpty extends WatchlistTvsState {}
 
-class TvWatchlistLoading extends TvWatchlistState {}
+class WatchlistTvsLoading extends WatchlistTvsState {}
 
-class TvWatchlistError extends TvWatchlistState {
+class WatchlistTvsError extends WatchlistTvsState {
   final String message;
 
-  const TvWatchlistError(this.message);
+  const WatchlistTvsError(this.message);
 
   @override
   List<Object> get props => [message];
 }
 
-class TvWatchlistSuccess extends TvWatchlistState {
+class WatchlistTvsSuccess extends WatchlistTvsState {
   final String message;
 
-  const TvWatchlistSuccess(this.message);
+  const WatchlistTvsSuccess(this.message);
 
   @override
   List<Object> get props => [message];
 }
 
-class TvWatchlistLoaded extends TvWatchlistState {
+class WatchlistTvsLoaded extends WatchlistTvsState {
   final List<Tv> result;
 
-  const TvWatchlistLoaded(this.result);
+  const WatchlistTvsLoaded(this.result);
 
   @override
   List<Object> get props => [result];
 }
 
-class TvWatchlistStatusLoaded extends TvWatchlistState {
+class WatchlistTvsStatusLoaded extends WatchlistTvsState {
   final bool result;
 
-  const TvWatchlistStatusLoaded(this.result);
+  const WatchlistTvsStatusLoaded(this.result);
 
   @override
   List<Object> get props => [result];
