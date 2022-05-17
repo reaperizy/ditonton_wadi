@@ -44,6 +44,8 @@ final testWatchlistMovie = Movie.watchlist(
   overview: 'overview',
 );
 
+final testWatchlistMovieList = [testWatchlistMovie];
+
 const testMovieTable = MovieTable(
   id: 1,
   title: 'title',

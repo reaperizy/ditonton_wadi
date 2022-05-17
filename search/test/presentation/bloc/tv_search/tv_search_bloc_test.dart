@@ -48,7 +48,7 @@ void main() {
       'Should emit [Loading, Error] when get search is unsuccessful',
       build: () {
         when(mockSearchTv.execute(query))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return tvSearchBloc;
       },
       act: (bloc) => bloc.add(const TvSearchQueryEvent(query)),

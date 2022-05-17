@@ -9,7 +9,7 @@ import '../../utils/constants.dart';
 class TvCard extends StatelessWidget {
   final Tv tv;
 
-  TvCard(this.tv, {Key? key}) : super(key: key);
+  const TvCard(this.tv, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

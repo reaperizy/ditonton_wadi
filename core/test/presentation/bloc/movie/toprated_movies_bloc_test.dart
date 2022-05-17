@@ -47,12 +47,12 @@ void main() {
         'Should emit [Loading, Error] when get top rated is unsuccessful',
         build: () {
           when(mockGetTopRatedMovies.execute())
-              .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+              .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
           return movieTopRatedBloc;
         },
         act: (bloc) => bloc.add(MovieTopRatedGetEvent()),
         expect: () =>
-            [MovieTopRatedLoading(), MovieTopRatedError('Server Failure')],
+            [MovieTopRatedLoading(), const MovieTopRatedError('Server Failure')],
         verify: (bloc) {
           verify(mockGetTopRatedMovies.execute());
         },

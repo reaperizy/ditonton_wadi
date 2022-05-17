@@ -45,7 +45,7 @@ void main() {
       'Should emit [Loading, Error] when get now playing is unsuccessful',
       build: () {
         when(mockGetNowPlayingMovies.execute())
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return movieNowPlayingBloc;
       },
       act: (bloc) => bloc.add(MovieNowPlayingGetEvent()),

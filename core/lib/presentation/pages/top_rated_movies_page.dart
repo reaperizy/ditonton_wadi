@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'package:core/presentation/bloc/movie/toprated_movie/toprated_movie_bloc.dart';
 import '../widgets/movie_card_list.dart';
@@ -46,7 +45,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
                 itemCount: state.result.length,
               );
             } else {
-              return Center(
+              return const Center(
                 key: Key('error_message'),
                 child: Text("Error"),
               );

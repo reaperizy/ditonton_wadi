@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:core/utils//failure.dart';
+import 'package:core/utils/failure.dart';
 import 'package:core/domain/entities/tv/tv.dart';
 import 'package:core/domain/usecases/tv/get_tv_recommendations.dart';
 import 'package:core/presentation/bloc/tv/recommend_tv/reccomend_tv_bloc.dart';
@@ -49,7 +49,7 @@ void main() {
       'Should emit [Loading, Error] when get recommendation is unsuccessful',
       build: () {
         when(mockGetTvRecommendation.execute(tvId))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return tvRecommendationBloc;
       },
       act: (bloc) => bloc.add(const GetTvRecommendationEvent(tvId)),

@@ -48,7 +48,7 @@ void main() {
       'Should emit [Loading, Error] when get search is unsuccessful',
       build: () {
         when(mockSearchMovies.execute(query))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return movieSearchBloc;
       },
       act: (bloc) => bloc.add(const MovieSearchQueryEvent(query)),

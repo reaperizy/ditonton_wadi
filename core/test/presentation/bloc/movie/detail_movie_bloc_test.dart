@@ -30,12 +30,12 @@ void main() {
       'Should emit [Loading, Loaded] when data is gotten successfully',
       build: () {
         when(mockGetMovieDetail.execute(movieId))
-            .thenAnswer((_) async => Right(testMovieDetail));
+            .thenAnswer((_) async => const Right(testMovieDetail));
         return movieDetailBloc;
       },
       act: (bloc) => bloc.add(const GetMovieDetailEvent(movieId)),
       expect: () =>
-      [DetailMovieLoading(), DetailMovieLoaded(testMovieDetail)],
+      [DetailMovieLoading(), const DetailMovieLoaded(testMovieDetail)],
       verify: (bloc) {
         verify(mockGetMovieDetail.execute(movieId));
       },
@@ -45,7 +45,7 @@ void main() {
       'Should emit [Loading, Error] when get detail is unsuccessful',
       build: () {
         when(mockGetMovieDetail.execute(movieId))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return movieDetailBloc;
       },
       act: (bloc) => bloc.add(const GetMovieDetailEvent(movieId)),

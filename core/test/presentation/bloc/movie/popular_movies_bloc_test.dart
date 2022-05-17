@@ -45,12 +45,12 @@ void main() {
         'Should emit [loading, error] when data is failed to loaded',
         build: () {
           when(mockGetPopularMovies.execute())
-              .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+              .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
           return moviePopularBloc;
         },
         act: (bloc) => bloc.add(MoviePopularGetEvent()),
         expect: () =>
-        [MoviePopularLoading(), MoviePopularError('Server Failure')],
+        [MoviePopularLoading(), const MoviePopularError('Server Failure')],
         verify: (bloc) {
           verify(mockGetPopularMovies.execute());
         });

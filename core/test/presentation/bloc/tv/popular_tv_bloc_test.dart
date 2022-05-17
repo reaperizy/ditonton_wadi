@@ -44,11 +44,11 @@ void main() {
       'Should emit [Loading, Error] when get popular is unsuccessful',
       build: () {
         when(mockGetPopularTv.execute())
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return tvPopularBloc;
       },
       act: (bloc) => bloc.add(TvPopularGetEvent()),
-      expect: () => [TvPopularLoading(),  TvPopularError('Server Failure')],
+      expect: () => [TvPopularLoading(),  const TvPopularError('Server Failure')],
       verify: (bloc) {
         verify(mockGetPopularTv.execute());
       },

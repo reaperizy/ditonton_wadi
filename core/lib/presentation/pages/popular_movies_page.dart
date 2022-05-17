@@ -45,7 +45,7 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
                 itemCount: state.result.length,
               );
             } else {
-              return Center(
+              return const Center(
                 key: Key('error_message'),
                 child: Text("Error"),
               );

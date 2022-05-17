@@ -45,7 +45,7 @@ void main() {
       'Should emit [Loading, Error] when get now playing is unsuccessful',
       build: () {
         when(mockGetNowPlayingTv.execute())
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return tvOnAirBloc;
       },
       act: (bloc) => bloc.add(TvOnAirGetEvent()),

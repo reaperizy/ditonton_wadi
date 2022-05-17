@@ -49,7 +49,7 @@ void main() {
       'Should emit [Loading, Error] when get recommendation is unsuccessful',
       build: () {
         when(mockGetMovieRecommendation.execute(movieId))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return movieRecommendationBloc;
       },
       act: (bloc) => bloc.add(const GetMovieRecommendationEvent(movieId)),

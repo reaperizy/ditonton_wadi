@@ -75,7 +75,7 @@ class _TelevisionDetailPageState extends State<TelevisionDetailPage> {
                 ),
               );
             } else {
-              return Text("Empty");
+              return const Text("Empty");
             }
           },
         ),
@@ -137,10 +137,10 @@ class DetailContent extends StatelessWidget {
                               onPressed: () async {
                                 if (!isAddedWatchlistTv) {
                                   BlocProvider.of<TvWatchlistBloc>(context)
-                                    ..add(AddItemTvEvent(tv));
+                                    .add(AddItemTvEvent(tv));
                                 } else {
                                   BlocProvider.of<TvWatchlistBloc>(context)
-                                    ..add(RemoveItemTvEvent(tv));
+                                    .add(RemoveItemTvEvent(tv));
                                 }
                               },
                               child: Row(
@@ -217,20 +217,20 @@ class DetailContent extends StatelessWidget {
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: BorderRadius.all(
+                                              borderRadius: const BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
                                               child: CachedNetworkImage(
                                                 imageUrl:
                                                     'https://image.tmdb.org/t/p/w500${tv.posterPath}',
                                                 placeholder: (context, url) =>
-                                                    Center(
+                                                    const Center(
                                                   child:
                                                       CircularProgressIndicator(),
                                                 ),
                                                 errorWidget:
                                                     (context, url, error) =>
-                                                        Icon(Icons.error),
+                                                        const Icon(Icons.error),
                                               ),
                                             ),
                                           ),

@@ -39,6 +39,8 @@ final testWatchlistTv = Tv.watchlist(
   overview: 'overview',
 );
 
+final testWatchlistTvList = [testWatchlistTv];
+
 const testTvTable = TvTable(
   id: 1,
   name: 'name',

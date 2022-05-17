@@ -45,7 +45,7 @@ class _TopRatedTelevisionPageState extends State<TopRatedTelevisionPage> {
                 itemCount: state.result.length,
               );
             } else {
-              return Center(
+              return const Center(
                 key: Key('error_message'),
                 child: Text("Error"),
               );

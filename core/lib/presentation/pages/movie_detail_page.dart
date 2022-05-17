@@ -79,7 +79,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                 ),
               );
             } else {
-              return Text("Empty");
+              return const Text("Empty");
             }
           },
         ),
@@ -141,10 +141,10 @@ class DetailContent extends StatelessWidget {
                               onPressed: () async {
                                 if (!isAddedWatchlist) {
                                   BlocProvider.of<MovieWatchlistBloc>(context)
-                                    ..add(AddItemMovieEvent(movie));
+                                    .add(AddItemMovieEvent(movie));
                                 } else {
                                   BlocProvider.of<MovieWatchlistBloc>(context)
-                                    ..add(RemoveItemMovieEvent(movie));
+                                    .add(RemoveItemMovieEvent(movie));
                                 }
                               },
                               child: Row(
@@ -222,20 +222,20 @@ class DetailContent extends StatelessWidget {
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: BorderRadius.all(
+                                              borderRadius: const BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
                                               child: CachedNetworkImage(
                                                 imageUrl:
                                                     'https://image.tmdb.org/t/p/w500${movie.posterPath}',
                                                 placeholder: (context, url) =>
-                                                    Center(
+                                                    const Center(
                                                   child:
                                                       CircularProgressIndicator(),
                                                 ),
                                                 errorWidget:
                                                     (context, url, error) =>
-                                                        Icon(Icons.error),
+                                                        const Icon(Icons.error),
                                               ),
                                             ),
                                           ),
