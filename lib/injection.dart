@@ -30,14 +30,14 @@ import 'package:core/presentation/bloc/movie/detailmovie/detail_movie_bloc.dart'
 import 'package:core/presentation/bloc/movie/nowplaying/nowplaying_movie_bloc.dart';
 import 'package:core/presentation/bloc/movie/popularmovie/popular_movie_bloc.dart';
 import 'package:core/presentation/bloc/movie/recommend_movie/reccomend_movie_bloc.dart';
-import 'package:core/presentation/bloc/movie/search_movie/search_movie_bloc.dart';
+import 'package:search/presentation/bloc/search_movie/search_movie_bloc.dart';
 import 'package:core/presentation/bloc/movie/toprated_movie/toprated_movie_bloc.dart';
 import 'package:core/presentation/bloc/movie/watchlist_movie/watchlist_movie_bloc.dart';
 import 'package:core/presentation/bloc/tv/detail_tv/detail_tv_bloc.dart';
 import 'package:core/presentation/bloc/tv/onair_tv/onair_tv_bloc.dart';
 import 'package:core/presentation/bloc/tv/popular_tv/popular_tv_bloc.dart';
 import 'package:core/presentation/bloc/tv/recommend_tv/reccomend_tv_bloc.dart';
-import 'package:core/presentation/bloc/tv/search_tv/search_tv_bloc.dart';
+import 'package:search/presentation/bloc/search_tv/search_tv_bloc.dart';
 import 'package:core/presentation/bloc/tv/toprated_tv/toprated_tv_bloc.dart';
 import 'package:core/presentation/bloc/tv/watchlist_tv/watchlist_tv_bloc.dart';
 import 'package:get_it/get_it.dart';
