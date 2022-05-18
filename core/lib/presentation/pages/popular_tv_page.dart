@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../widgets/tv_card_list.dart';
 
 class PopularTelevisionPage extends StatefulWidget {
-  static const ROUTE_NAME = '/popular-tv';
+  static const routeName = '/popular-tv';
 
   const PopularTelevisionPage({Key? key}) : super(key: key);
 

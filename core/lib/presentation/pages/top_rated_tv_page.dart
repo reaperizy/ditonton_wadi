@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../widgets/tv_card_list.dart';
 
 class TopRatedTelevisionPage extends StatefulWidget {
-  static const ROUTE_NAME = '/top-rated-tv';
+  static const routeName = '/top-rated-tv';
 
   const TopRatedTelevisionPage({Key? key}) : super(key: key);
 

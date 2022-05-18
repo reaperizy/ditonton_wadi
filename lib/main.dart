@@ -105,11 +105,11 @@ class MyApp extends StatelessWidget {
           switch (settings.name) {
             case '/home':
               return MaterialPageRoute(builder: (_) => HomeMoviePage());
-            case PopularMoviesPage.ROUTE_NAME:
+            case PopularMoviesPage.routeName:
               return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
-            case TopRatedMoviesPage.ROUTE_NAME:
+            case TopRatedMoviesPage.routeName:
               return CupertinoPageRoute(builder: (_) => TopRatedMoviesPage());
-            case MovieDetailPage.ROUTE_NAME:
+            case MovieDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
                 builder: (_) => MovieDetailPage(id: id),
@@ -117,28 +117,28 @@ class MyApp extends StatelessWidget {
               );
             case '/tv':
               return MaterialPageRoute(builder: (_) => HomeTelevisionPage());
-            case PopularTelevisionPage.ROUTE_NAME:
+            case PopularTelevisionPage.routeName:
               return CupertinoPageRoute(
                   builder: (_) => PopularTelevisionPage());
-            case TopRatedTelevisionPage.ROUTE_NAME:
+            case TopRatedTelevisionPage.routeName:
               return CupertinoPageRoute(
                   builder: (_) => TopRatedTelevisionPage());
-            case TelevisionDetailPage.ROUTE_NAME:
+            case TelevisionDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
                 builder: (_) => TelevisionDetailPage(id: id),
                 settings: settings,
               );
-            case SearchPage.ROUTE_NAME:
+            case SearchPage.routeName:
               return CupertinoPageRoute(builder: (_) => SearchPage());
-            case SearchTelevisionPage.ROUTE_NAME:
+            case SearchTelevisionPage.routeName:
               return CupertinoPageRoute(builder: (_) => SearchTelevisionPage());
-            case WatchlistMoviesPage.ROUTE_NAME:
+            case WatchlistMoviesPage.routeName:
               return MaterialPageRoute(builder: (_) => WatchlistMoviesPage());
-            case WatchlistTelevisionPage.ROUTE_NAME:
+            case WatchlistTelevisionPage.routeName:
               return MaterialPageRoute(
                   builder: (_) => WatchlistTelevisionPage());
-            case AboutPage.ROUTE_NAME:
+            case AboutPage.routeName:
               return MaterialPageRoute(builder: (_) => AboutPage());
             default:
               return MaterialPageRoute(builder: (_) {

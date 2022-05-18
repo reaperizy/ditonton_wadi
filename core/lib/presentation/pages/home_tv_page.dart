@@ -21,7 +21,7 @@ class HomeTelevisionPage extends StatefulWidget {
 
   @override
   _HomeTelevisionPageState createState() => _HomeTelevisionPageState();
-  static const ROUTE_NAME = '/tv';
+  static const routeName = '/tv';
 }
 
 class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
@@ -52,7 +52,7 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
               leading: const Icon(Icons.movie),
               title: const Text('Movies'),
               onTap: () {
-                Navigator.pushNamed(context, HomeMoviePage.ROUTE_NAME);
+                Navigator.pushNamed(context, HomeMoviePage.routeName);
               },
             ),
             ListTile(
@@ -70,8 +70,7 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
                   leading: const Icon(Icons.movie),
                   title: const Text('Movie'),
                   onTap: () {
-                    Navigator.pushNamed(
-                        context, WatchlistMoviesPage.ROUTE_NAME);
+                    Navigator.pushNamed(context, WatchlistMoviesPage.routeName);
                   },
                 ),
                 ListTile(
@@ -79,14 +78,14 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
                   title: const Text('Television'),
                   onTap: () {
                     Navigator.pushNamed(
-                        context, WatchlistTelevisionPage.ROUTE_NAME);
+                        context, WatchlistTelevisionPage.routeName);
                   },
                 ),
               ],
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                Navigator.pushNamed(context, AboutPage.routeName);
               },
               leading: const Icon(Icons.info_outline),
               title: const Text('About'),
@@ -99,7 +98,7 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SearchTelevisionPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SearchTelevisionPage.routeName);
             },
             icon: const Icon(Icons.search),
           )
@@ -133,7 +132,7 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
               _buildSubHeading(
                 title: 'Popular TV',
                 onTap: () => Navigator.pushNamed(
-                    context, PopularTelevisionPage.ROUTE_NAME),
+                    context, PopularTelevisionPage.routeName),
               ),
               BlocBuilder<PopularsTvsBloc, PopularsTvsState>(
                 builder: (context, state) {
@@ -153,7 +152,7 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
               _buildSubHeading(
                 title: 'Top Rated TV',
                 onTap: () => Navigator.pushNamed(
-                    context, TopRatedTelevisionPage.ROUTE_NAME),
+                    context, TopRatedTelevisionPage.routeName),
               ),
               BlocBuilder<TopRatedsTvsBloc, TopRatedsTvsState>(
                 builder: (context, state) {
@@ -206,7 +205,7 @@ class TvList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -218,14 +217,14 @@ class TvList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  TelevisionDetailPage.ROUTE_NAME,
+                  TelevisionDetailPage.routeName,
                   arguments: tvs.id,
                 );
               },
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
-                  imageUrl: '$BASE_IMAGE_URL${tvs.posterPath}',
+                  imageUrl: '$baseImageUrl${tvs.posterPath}',
                   placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),

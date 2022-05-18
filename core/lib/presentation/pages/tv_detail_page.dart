@@ -13,7 +13,7 @@ import '../../styles/text_styles.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TelevisionDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail-tv';
+  static const routeName = '/detail-tv';
 
   final int id;
 
@@ -29,9 +29,7 @@ class _TelevisionDetailPageState extends State<TelevisionDetailPage> {
     super.initState();
     Future.microtask(() {
       context.read<DetailsTvsBloc>().add(GetDetailsTvsEvent(widget.id));
-      context
-          .read<RecommendTvsBloc>()
-          .add(GetRecommendTvsEvent(widget.id));
+      context.read<RecommendTvsBloc>().add(GetRecommendTvsEvent(widget.id));
       context.read<WatchlistTvsBloc>().add(GetStatusTvsEvent(widget.id));
     });
   }
@@ -137,10 +135,10 @@ class DetailContent extends StatelessWidget {
                               onPressed: () async {
                                 if (!isAddedWatchlistTv) {
                                   BlocProvider.of<WatchlistTvsBloc>(context)
-                                    .add(AddItemTvsEvent(tv));
+                                      .add(AddItemTvsEvent(tv));
                                 } else {
                                   BlocProvider.of<WatchlistTvsBloc>(context)
-                                    .add(RemoveItemTvsEvent(tv));
+                                      .add(RemoveItemTvsEvent(tv));
                                 }
                               },
                               child: Row(
@@ -186,8 +184,7 @@ class DetailContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            BlocBuilder<RecommendTvsBloc,
-                                RecommendTvsState>(
+                            BlocBuilder<RecommendTvsBloc, RecommendTvsState>(
                               builder: (context, state) {
                                 if (state is RecommendTvsLoading) {
                                   return const Center(
@@ -200,7 +197,7 @@ class DetailContent extends StatelessWidget {
                                   if (recommendations.isEmpty) {
                                     return const Text("No tv recommendations");
                                   }
-                                  return Container(
+                                  return SizedBox(
                                     height: 150,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
@@ -212,12 +209,13 @@ class DetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                TelevisionDetailPage.ROUTE_NAME,
+                                                TelevisionDetailPage.routeName,
                                                 arguments: tv.id,
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: const BorderRadius.all(
+                                              borderRadius:
+                                                  const BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
                                               child: CachedNetworkImage(

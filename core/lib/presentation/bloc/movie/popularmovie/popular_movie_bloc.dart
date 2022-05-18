@@ -6,7 +6,8 @@ import 'package:equatable/equatable.dart';
 part 'popular_movie_event.dart';
 part 'popular_movie_state.dart';
 
-class PopularsMoviesBloc extends Bloc<PopularsMoviesEvent, PopularsMoviesState> {
+class PopularsMoviesBloc
+    extends Bloc<PopularsMoviesEvent, PopularsMoviesState> {
   final GetPopularMovies getPopularMovies;
 
   PopularsMoviesBloc(

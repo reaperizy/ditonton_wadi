@@ -6,7 +6,8 @@ import 'package:equatable/equatable.dart';
 part 'toprated_movie_event.dart';
 part 'toprated_movie_state.dart';
 
-class TopRatedsMoviesBloc extends Bloc<TopRatedsMoviesEvent, TopRatedsMoviesState> {
+class TopRatedsMoviesBloc
+    extends Bloc<TopRatedsMoviesEvent, TopRatedsMoviesState> {
   final GetTopRatedMovies getTopRatedMovies;
 
   TopRatedsMoviesBloc(

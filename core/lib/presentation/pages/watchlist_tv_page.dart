@@ -7,7 +7,7 @@ import 'package:core/presentation/widgets/tv_card_list.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WatchlistTelevisionPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-tv';
+  static const routeName = '/watchlist-tv';
 
   const WatchlistTelevisionPage({Key? key}) : super(key: key);
 
@@ -32,6 +32,7 @@ class _WatchlistTelevisionPageState extends State<WatchlistTelevisionPage>
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  @override
   void didPopNext() {
     context.read<WatchlistTvsBloc>().add(GetListEvent());
   }

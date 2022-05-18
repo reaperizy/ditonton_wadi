@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-
 import '../datasources/tv/tv_local_data_source.dart';
 import '../datasources/tv/tv_remote_data_source.dart';
 import '../models/tv/tv_table.dart';
@@ -29,6 +28,8 @@ class TelevisionRepositoryImpl implements TvRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SslFailure('Certificate unvalid'));
     }
   }
 
@@ -41,6 +42,8 @@ class TelevisionRepositoryImpl implements TvRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SslFailure('Certificate unvalid'));
     }
   }
 
@@ -53,6 +56,8 @@ class TelevisionRepositoryImpl implements TvRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SslFailure('Certificate unvalid'));
     }
   }
 
@@ -65,6 +70,8 @@ class TelevisionRepositoryImpl implements TvRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SslFailure('Certificate unvalid'));
     }
   }
 
@@ -77,6 +84,8 @@ class TelevisionRepositoryImpl implements TvRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SslFailure('Certificate unvalid'));
     }
   }
 
@@ -89,6 +98,8 @@ class TelevisionRepositoryImpl implements TvRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SslFailure('Certificate unvalid'));
     }
   }
 

@@ -6,8 +6,7 @@ import 'package:equatable/equatable.dart';
 part 'reccomend_tv_event.dart';
 part 'reccomend_tv_state.dart';
 
-class RecommendTvsBloc
-    extends Bloc<RecommendTvsEvent, RecommendTvsState> {
+class RecommendTvsBloc extends Bloc<RecommendTvsEvent, RecommendTvsState> {
   final GetTvRecommendations getTvRecommendations;
 
   RecommendTvsBloc({

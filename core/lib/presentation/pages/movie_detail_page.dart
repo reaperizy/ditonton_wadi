@@ -16,7 +16,7 @@ import 'package:core/presentation/bloc/movie/watchlist_movie/watchlist_movie_blo
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MovieDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail';
+  static const routeName = '/detail';
 
   final int id;
   const MovieDetailPage({Key? key, required this.id}) : super(key: key);
@@ -141,10 +141,10 @@ class DetailContent extends StatelessWidget {
                               onPressed: () async {
                                 if (!isAddedWatchlist) {
                                   BlocProvider.of<WatchlistMoviesBloc>(context)
-                                    .add(AddItemMovieEvent(movie));
+                                      .add(AddItemMovieEvent(movie));
                                 } else {
                                   BlocProvider.of<WatchlistMoviesBloc>(context)
-                                    .add(RemoveItemMovieEvent(movie));
+                                      .add(RemoveItemMovieEvent(movie));
                                 }
                               },
                               child: Row(
@@ -205,7 +205,7 @@ class DetailContent extends StatelessWidget {
                                     return const Text(
                                         "No movie recommendations");
                                   }
-                                  return Container(
+                                  return SizedBox(
                                     height: 150,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
@@ -217,12 +217,13 @@ class DetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                MovieDetailPage.ROUTE_NAME,
+                                                MovieDetailPage.routeName,
                                                 arguments: movie.id,
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: const BorderRadius.all(
+                                              borderRadius:
+                                                  const BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
                                               child: CachedNetworkImage(
