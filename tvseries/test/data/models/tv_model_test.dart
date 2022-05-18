@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:tvseries/data/models/tv_model.dart';
 import 'package:tvseries/domain/entities/tv.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   const tTvModel = TvModel(

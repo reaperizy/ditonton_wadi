@@ -1,14 +1,15 @@
 import 'dart:io';
 
+import 'package:core/utils/exception.dart';
+import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
-import '../datasources/tv_local_data_source.dart';
-import '../datasources/tv_remote_data_source.dart';
-import '../models/tv_table.dart';
+
 import '../../domain/entities/tv.dart';
 import '../../domain/entities/tv_detail.dart';
 import '../../domain/repositories/tv_repository.dart';
-import 'package:core/utils/exception.dart';
-import 'package:core/utils/failure.dart';
+import '../datasources/tv_local_data_source.dart';
+import '../datasources/tv_remote_data_source.dart';
+import '../models/tv_table.dart';
 
 class TelevisionRepositoryImpl implements TvRepository {
   final TelevisionRemoteDataSource remoteDataSource;

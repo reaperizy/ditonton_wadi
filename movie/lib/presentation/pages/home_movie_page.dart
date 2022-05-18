@@ -1,6 +1,5 @@
 import 'package:about/about.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/movie.dart';
@@ -103,7 +102,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         actions: [
           IconButton(
             onPressed: () {
-              FirebaseCrashlytics.instance.crash();
+              //FirebaseCrashlytics.instance.crash(); // Force a crash
               Navigator.pushNamed(context, SearchPage.routeName);
             },
             icon: Icon(Icons.search),

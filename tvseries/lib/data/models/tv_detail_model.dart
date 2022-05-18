@@ -1,5 +1,6 @@
 import 'package:core/data/models/genre_model.dart';
 import 'package:equatable/equatable.dart';
+
 import '../../../domain/entities/tv_detail.dart';
 
 class TvDetailResponse extends Equatable {
@@ -86,6 +87,7 @@ class TvDetailResponse extends Equatable {
         "vote_average": voteAverage,
         "vote_count": voteCount,
       };
+
   TvDetail toEntity() {
     return TvDetail(
       backdropPath: backdropPath,

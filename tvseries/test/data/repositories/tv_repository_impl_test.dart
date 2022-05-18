@@ -1,15 +1,15 @@
 import 'dart:io';
 
-import 'package:dartz/dartz.dart';
 import 'package:core/data/models/genre_model.dart';
+import 'package:core/utils/exception.dart';
+import 'package:core/utils/failure.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
 import 'package:tvseries/data/models/tv_detail_model.dart';
 import 'package:tvseries/data/models/tv_model.dart';
 import 'package:tvseries/data/repositories/tv_repository_impl.dart';
-import 'package:core/utils/exception.dart';
-import 'package:core/utils/failure.dart';
 import 'package:tvseries/domain/entities/tv.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 
 import '../../dummy_data/dummy_objects_tv.dart';
 import '../../helpers/test_helper_tv.mocks.dart';

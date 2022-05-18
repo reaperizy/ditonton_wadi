@@ -1,18 +1,23 @@
 import 'dart:convert';
 
+import 'package:core/utils/exception.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/tv_detail_model.dart';
 import '../models/tv_model.dart';
 import '../models/tv_response.dart';
-import 'package:core/utils/exception.dart';
 
 abstract class TelevisionRemoteDataSource {
   Future<List<TvModel>> getNowPlayingTv();
+
   Future<List<TvModel>> getPopularTv();
+
   Future<List<TvModel>> getTopRatedTv();
+
   Future<TvDetailResponse> getTvDetail(int id);
+
   Future<List<TvModel>> getTvRecommendations(int id);
+
   Future<List<TvModel>> searchTv(String query);
 }
 

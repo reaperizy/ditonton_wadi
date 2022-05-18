@@ -1,16 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:core/domain/entities/genre.dart';
+import 'package:core/styles/colors.dart';
+import 'package:core/styles/text_styles.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tvseries/presentation/bloc/detail_tv/detail_tv_bloc.dart';
 import 'package:tvseries/presentation/bloc/recommend_tv/reccomend_tv_bloc.dart';
 import 'package:tvseries/presentation/bloc/watchlist_tv/watchlist_tv_bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import 'package:core/domain/entities/genre.dart';
 import '../../domain/entities/tv.dart';
 import '../../domain/entities/tv_detail.dart';
-import 'package:core/styles/colors.dart';
-import 'package:core/styles/text_styles.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TelevisionDetailPage extends StatefulWidget {
   static const routeName = '/detail-tv';

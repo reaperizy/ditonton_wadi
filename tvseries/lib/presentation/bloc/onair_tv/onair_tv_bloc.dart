@@ -1,7 +1,7 @@
-import 'package:tvseries/domain/entities/tv.dart';
-import 'package:tvseries/domain/usecases/get_now_playing_tv.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tvseries/domain/entities/tv.dart';
+import 'package:tvseries/domain/usecases/get_now_playing_tv.dart';
 
 part 'onair_tv_event.dart';
 part 'onair_tv_state.dart';

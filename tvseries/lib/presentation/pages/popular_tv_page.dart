@@ -1,8 +1,7 @@
-import 'package:tvseries/presentation/bloc/popular_tv/popular_tv_bloc.dart';
+import 'package:core/presentation/widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:core/presentation/widgets/tv_card_list.dart';
+import 'package:tvseries/presentation/bloc/popular_tv/popular_tv_bloc.dart';
 
 class PopularTelevisionPage extends StatefulWidget {
   static const routeName = '/popular-tv';

@@ -16,6 +16,7 @@ class TvModel extends Equatable {
     required this.voteAverage,
     required this.voteCount,
   });
+
   final String? backdropPath;
   final List<int> genreIds;
   final int id;
@@ -41,6 +42,7 @@ class TvModel extends Equatable {
         voteAverage: json["vote_average"].toDouble(),
         voteCount: json["vote_count"],
       );
+
   Map<String, dynamic> toJson() => {
         "backdrop_path": backdropPath,
         "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
@@ -54,6 +56,7 @@ class TvModel extends Equatable {
         "vote_average": voteAverage,
         "vote_count": voteCount,
       };
+
   Tv toEntity() {
     return Tv(
       backdropPath: backdropPath,

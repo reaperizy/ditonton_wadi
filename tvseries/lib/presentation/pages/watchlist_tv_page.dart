@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-
 import 'package:core/common/utils.dart';
-import 'package:tvseries/presentation/bloc/watchlist_tv/watchlist_tv_bloc.dart';
 import 'package:core/presentation/widgets/tv_card_list.dart';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tvseries/presentation/bloc/watchlist_tv/watchlist_tv_bloc.dart';
 
 class WatchlistTelevisionPage extends StatefulWidget {
   static const routeName = '/watchlist-tv';

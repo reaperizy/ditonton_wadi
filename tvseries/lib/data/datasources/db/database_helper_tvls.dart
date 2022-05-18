@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:sqflite/sqflite.dart';
+
 import '../../models/tv_table.dart';
 
 class DatabaseHelperTelevision {
   static DatabaseHelperTelevision? _databaseHelpertlvs;
+
   DatabaseHelperTelevision._instance() {
     _databaseHelpertlvs = this;
   }

@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:sqflite/sqflite.dart';
+
 import '../../models/movie_table.dart';
 
 class DatabaseHelper {
   static DatabaseHelper? _databaseHelper;
+
   DatabaseHelper._instance() {
     _databaseHelper = this;
   }

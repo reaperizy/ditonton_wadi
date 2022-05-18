@@ -1,20 +1,21 @@
+import 'package:about/about.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:movie/presentation/pages/watchlist_movies_page.dart';
-import 'watchlist_tv_page.dart';
-import 'package:movie/presentation/pages/home_movie_page.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
-import '../../../domain/entities/tv.dart';
-import 'tv_detail_page.dart';
-import 'popular_tv_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/presentation/pages/home_movie_page.dart';
+import 'package:movie/presentation/pages/watchlist_movies_page.dart';
 import 'package:search/presentation/pages/search_page_tv.dart';
-import 'top_rated_tv_page.dart';
-import 'package:about/about.dart';
 import 'package:tvseries/presentation/bloc/onair_tv/onair_tv_bloc.dart';
 import 'package:tvseries/presentation/bloc/popular_tv/popular_tv_bloc.dart';
 import 'package:tvseries/presentation/bloc/toprated_tv/toprated_tv_bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../domain/entities/tv.dart';
+import 'popular_tv_page.dart';
+import 'top_rated_tv_page.dart';
+import 'tv_detail_page.dart';
+import 'watchlist_tv_page.dart';
 
 class HomeTelevisionPage extends StatefulWidget {
   const HomeTelevisionPage({Key? key}) : super(key: key);

@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:tvseries/data/datasources/tv_remote_data_source.dart';
-import 'package:tvseries/data/models/tv_detail_model.dart';
-import 'package:tvseries/data/models/tv_response.dart';
 import 'package:core/utils/exception.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
+import 'package:tvseries/data/datasources/tv_remote_data_source.dart';
+import 'package:tvseries/data/models/tv_detail_model.dart';
+import 'package:tvseries/data/models/tv_response.dart';
 
-import '../../json_reader.dart';
 import '../../helpers/test_helper_tv.mocks.dart';
+import '../../json_reader.dart';
 
 void main() {
   const apiKey = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
