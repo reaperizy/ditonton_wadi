@@ -1,7 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:core/utils/failure.dart';
-import 'package:core/domain/entities/tv/tv.dart';
+import 'package:tvseries/domain/entities/tv.dart';
 import 'package:search/domain/usecase/search_tv.dart';
 import 'package:search/presentation/bloc/search_tv/search_tv_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';

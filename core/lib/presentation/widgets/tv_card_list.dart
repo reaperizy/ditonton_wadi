@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/tv/tv.dart';
-import '../../presentation/pages/tv_detail_page.dart';
+import 'package:tvseries/domain/entities/tv.dart';
+import 'package:tvseries/presentation/pages/tv_detail_page.dart';
 import '../../styles/text_styles.dart';
 import '../../utils/constants.dart';
 

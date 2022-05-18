@@ -1,7 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:core/utils/failure.dart';
-import 'package:core/domain/entities/movie/movie.dart';
+import 'package:movie/domain/entities/movie.dart';
 import 'package:search/domain/usecase/search_movies.dart';
 import 'package:search/presentation/bloc/search_movie/search_movie_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
