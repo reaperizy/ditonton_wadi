@@ -41,9 +41,9 @@ import 'package:search/presentation/bloc/search_tv/search_tv_bloc.dart';
 import 'package:core/presentation/bloc/tv/toprated_tv/toprated_tv_bloc.dart';
 import 'package:core/presentation/bloc/tv/watchlist_tv/watchlist_tv_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:http/http.dart' as http;
 import 'package:search/domain/usecase/search_movies.dart';
 import 'package:search/domain/usecase/search_tv.dart';
+import 'package:core/data/datasources/sslpinning/sslpinning.dart';
 
 final locator = GetIt.instance;
 
@@ -151,5 +151,5 @@ void init() {
       () => DatabaseHelperTelevision());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => SslPinnings.client);
 }

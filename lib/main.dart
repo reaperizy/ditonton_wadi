@@ -34,8 +34,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:core/data/datasources/sslpinning/sslpinning.dart';
 
-void main() {
+void main() async {
+  await SslPinnings.init();
   di.init();
   runApp(MyApp());
 }
