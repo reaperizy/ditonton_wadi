@@ -27,11 +27,14 @@ class SslPinnings {
       if (isTestMode) {
         bytes = utf8.encode(_certificate);
       } else {
-        bytes = (await rootBundle.load('certificates/certificate.pem')).buffer.asUint8List();
+        bytes = (await rootBundle.load('certificates/certificate.pem'))
+            .buffer
+            .asUint8List();
       }
       context.setTrustedCertificatesBytes(bytes);
     } on TlsException catch (e) {
-      if (e.osError?.message != null && e.osError!.message.contains('Certificate already in hash table')) {
+      if (e.osError?.message != null &&
+          e.osError!.message.contains('Certificate already in hash table')) {
         log('createHttpClient() - certificate already trusted.');
       } else {
         log('createHttpClient().setTrustedCertificateBytes EXCEPTION: $e');
@@ -42,7 +45,8 @@ class SslPinnings {
       rethrow;
     }
     HttpClient httpClient = HttpClient(context: context);
-    httpClient.badCertificateCallback = (X509Certificate cert, String host, int port) => false;
+    httpClient.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => false;
 
     return httpClient;
   }
