@@ -35,9 +35,11 @@ import 'package:tvseries/presentation/pages/popular_tv_page.dart';
 import 'package:tvseries/presentation/pages/top_rated_tv_page.dart';
 import 'package:tvseries/presentation/pages/tv_detail_page.dart';
 import 'package:tvseries/presentation/pages/watchlist_tv_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await SslPinnings.init();
   di.init();
   runApp(MyApp());

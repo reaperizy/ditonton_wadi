@@ -23,6 +23,7 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   flutter_bloc: ^8.0.1
   bloc_test: ^9.0.3
+  firebase_core: ^1.17.0
 
   core:
     path: ../core
@@ -32,6 +33,7 @@ dependencies:
     path: ../about
   tvseries:
     path: ../tvseries
+  firebase_crashlytics: ^2.8.0
 
 dev_dependencies:
   flutter_test:
